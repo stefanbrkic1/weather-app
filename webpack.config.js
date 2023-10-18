@@ -17,7 +17,7 @@ module.exports = {
     index: path.resolve(__dirname, './src/index.js'),
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[name]-[contenthash][ext]',
     clean: true,
