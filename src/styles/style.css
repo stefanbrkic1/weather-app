@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/TT\ Interphases\ Pro\ Trial\ Black.ttf");
+}
+
+.hello {
+  color: red;
+  font-family: "MyFont";
+}
