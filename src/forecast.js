@@ -1,3 +1,4 @@
-const weatherData = JSON.parse(localStorage.getItem('weatherData'));
+import './styles/style.css';
+import handleForecastSearch from './modules/search-forecast';
 
-console.log(weatherData);
+handleForecastSearch();

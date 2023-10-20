@@ -18,7 +18,8 @@
   --text-color: #fbfbfb;
   --text-secondary-color: #3d3e4d;
   --background-color: #191a22;
-  --background-secondary-color: #222431;
+  --background-secondary-color: #1c1d27;
+  --background-tertiary-color: #222431;
 
   --primary-font-regular: 'Gilroy', sans-serif;
   --primary-font-semi: 'GilroySemiBold', sans-serif;
@@ -179,6 +180,133 @@ body {
   background-size: contain;
 }
 
+/*Forecast CSS*/
+
+.forecast-container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color);
+  position: relative;
+  display: flex;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 10px;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+}
+
+.box1,
+.box2,
+.box3 {
+  background: var(--background-secondary-color);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.box1 {
+  grid-area: 1 / 1 / 3 / 2;
+  display: grid;
+  grid-template-rows: 1fr 14fr;
+  gap: 13px;
+}
+
+.box2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.box3 {
+  grid-area: 2 / 2 / -2 / -1;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  position: relative;
+}
+
+.logo-container-forecast {
+  background: var(--background-tertiary-color);
+  padding: 15px;
+  border-radius: 8px;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar-forecast-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar-forecast {
+  width: 100%;
+  appearance: none;
+  outline: none;
+  border: none;
+  padding: 14px;
+  background: var(--background-tertiary-color);
+  border-radius: 8px;
+  font-family: 'GilroySemiBold', sans-serif;
+  font-size: 16rem;
+  position: relative;
+}
+
+.search-bar-forecast:focus {
+  color: var(--text-color);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn-forecast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  outline: none;
+  border: none;
+  position: absolute;
+  background: var(--primary-color);
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.search-icon {
+  width: 17px;
+  height: 17px;
+  background: transparent;
+  background-image: url(../img/search-bold.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.current-weather-box {
+  background-color: var(--background-tertiary-color);
+  border-radius: 8px;
+}
+
 /*Media Queries*/
 
 /*PHONES*/
@@ -212,6 +340,21 @@ body {
   }
   .paragraph {
     font-size: 16rem;
+  }
+  .forecast-container {
+    padding: 14px;
+  }
+  .forecast {
+    display: flex;
+    flex-direction: column;
+  }
+  .box1,
+  .box2,
+  .box3 {
+    padding: 14px;
+  }
+  .box1 {
+    grid-template-rows: 1fr 8fr;
   }
 }
 

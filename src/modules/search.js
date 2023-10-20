@@ -3,13 +3,14 @@ import { addSearchButton, removeSearchButton } from './dom';
 
 const searchFormIndex = document.getElementById('searchFormIndex');
 const searchBarIndex = document.getElementById('searchBarIndex');
+const searchBtnIndex = document.getElementById('searchBtnIndex');
 
 function handleSearchInput() {
   searchBarIndex.addEventListener('input', () => {
     if (searchBarIndex.value !== '') {
-      addSearchButton();
+      addSearchButton(searchBtnIndex);
     } else {
-      removeSearchButton();
+      removeSearchButton(searchBtnIndex);
     }
   });
 }

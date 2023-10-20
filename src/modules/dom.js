@@ -1,9 +1,7 @@
-const searchBtnIndex = document.getElementById('searchBtnIndex');
-
-export function addSearchButton() {
-  searchBtnIndex.classList.remove('opacity-active');
+export function addSearchButton(searchBtn) {
+  searchBtn.classList.remove('opacity-active');
 }
 
-export function removeSearchButton() {
-  searchBtnIndex.classList.add('opacity-active');
+export function removeSearchButton(searchBtn) {
+  searchBtn.classList.add('opacity-active');
 }
