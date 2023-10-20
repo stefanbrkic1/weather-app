@@ -1,4 +1,4 @@
 import './styles/style.css';
-import getWeatherData from './modules/weather-api';
+import handleSearch from './modules/search';
 
-console.log(await getWeatherData('vranje', 'metric'));
+handleSearch();

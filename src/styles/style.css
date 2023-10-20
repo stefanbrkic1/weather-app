@@ -51,6 +51,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .search-bar-container {
@@ -116,13 +117,32 @@ body {
 }
 
 .search-bar-index:focus {
+  border: 1px solid var(--primary-color);
   color: var(--text-color);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
   width: 620px;
 }
 
 .search-container {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  background-image: url(../img/search-bold.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.opacity-active {
+  opacity: 0;
+}
+
+.search-btn-index {
   position: absolute;
+  appearance: none;
+  outline: none;
+  border: none;
   background: var(--primary-color);
   width: 34px;
   height: 34px;
@@ -134,19 +154,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.search-btn-index {
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  appearance: none;
-  outline: none;
-  border: none;
-  background-image: url(../img/search-bold.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
+  transition: all 200ms ease-in-out;
 }
 
 .github-container {
@@ -175,6 +183,12 @@ body {
 
 /*PHONES*/
 @media (max-width: 767px) {
+  .container {
+    padding: 10px;
+  }
+  .search-bar-container {
+    margin-bottom: 100%;
+  }
   .form-index {
     width: 100%;
   }
