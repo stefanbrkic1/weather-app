@@ -62,7 +62,6 @@ body {
   justify-content: center;
   margin-bottom: 13%;
   position: relative;
-  transition: all 300ms ease-in-out;
 }
 
 .logo-container {
@@ -87,7 +86,7 @@ body {
 }
 
 .paragraph {
-  font-size: 24rem;
+  font-size: 22rem;
   color: var(--text-secondary-color);
   text-align: center;
   margin: 10px 0px;
@@ -133,6 +132,7 @@ body {
 
 .opacity-active {
   opacity: 0;
+  pointer-events: none;
 }
 
 .search-btn-index {
