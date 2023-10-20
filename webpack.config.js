@@ -54,9 +54,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'WeatherApp',
+      title: 'WeatherWave',
       filename: 'index.html',
-      template: path.resolve(__dirname, './src/index.ejs'),
+      template: path.resolve(__dirname, './src/pages/index.ejs'),
+    }),
+    new HtmlWebpackPlugin({
+      title: 'WeatherWave | Forecast',
+      filename: 'weather.html',
+      template: path.resolve(__dirname, './src/pages/weather.ejs'),
     }),
   ],
 };

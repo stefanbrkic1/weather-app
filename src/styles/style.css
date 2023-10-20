@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url(../fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'GilroySemiBold';
+  src: url(../fonts/Gilroy-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'GilroyBold';
+  src: url(../fonts/Gilroy-Bold.ttf);
+}
+
+:root {
+  --primary-color: #3671f1;
+  --text-color: #fbfbfb;
+  --text-secondary-color: #3d3e4d;
+  --background-color: #191a22;
+  --background-secondary-color: #222431;
+
+  --primary-font-regular: 'Gilroy', sans-serif;
+  --primary-font-semi: 'GilroySemiBold', sans-serif;
+  --primary-font-bold: 'GilroyBold', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 6.25%;
+}
+
+body {
+  font-size: 16rem;
+  font-family: var(--primary-font-regular);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13%;
+  position: relative;
+  transition: all 300ms ease-in-out;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  margin-top: 15px;
+}
+
+.welcome-para {
+  font-family: var(--primary-font-bold) !important;
+  font-size: 38rem;
+}
+
+.welcome-text {
+  color: var(--text-color);
+}
+
+.welcome-logo {
+  color: var(--primary-color);
+}
+
+.paragraph {
+  font-size: 24rem;
+  color: var(--text-secondary-color);
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.form-index {
+  display: flex;
+  margin-top: 15px;
+  position: relative;
+}
+
+.search-bar-index {
+  padding: 16px 18px;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: var(--background-secondary-color);
+  color: var(--text-secondary-color);
+  width: 600px;
+  border-radius: 10px;
+  font-family: 'GilroySemiBold' !important;
+  font-size: 16rem;
+  transition: all 300ms ease-in-out;
+}
+
+.search-bar-index * {
+  transition: all 300ms ease-in-out;
+}
+
+.search-bar-index:focus {
+  color: var(--text-color);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  width: 620px;
+}
+
+.search-container {
+  position: absolute;
+  background: var(--primary-color);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  right: 9px;
+  top: 9px;
+  bottom: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-btn-index {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  appearance: none;
+  outline: none;
+  border: none;
+  background-image: url(../img/search-bold.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.github-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.github-user {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18rem;
+}
+
+.github {
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/github.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/*Media Queries*/
+
+/*PHONES*/
+@media (max-width: 767px) {
+  .form-index {
+    width: 100%;
+  }
+  .search-bar-index {
+    width: 100%;
+    padding: 12px 14px;
+  }
+  .search-container {
+    width: 32px;
+    height: 32px;
+    right: 6px;
+    top: 6px;
+    bottom: 6px;
+  }
+  .search-bar-index:focus {
+    width: 100%;
+  }
+
+  .welcome-para {
+    font-size: 26rem;
+  }
+  .paragraph {
+    font-size: 16rem;
+  }
+}
+
+/*TABLETS*/
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Styles for tablets in portrait orientation go here */
+}

@@ -46,5 +46,6 @@ export default async function getWeatherData(city, units) {
   );
   fetchedWeatherData.name = coordinates.name;
   fetchedWeatherData.state = coordinates.state;
+
   return fetchedWeatherData;
 }
