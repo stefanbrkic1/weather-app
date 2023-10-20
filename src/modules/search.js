@@ -24,7 +24,8 @@ function handleSearchSubmit() {
     e.preventDefault();
     getWeatherData(getLocationValue(), 'metric')
       .then((weatherData) => {
-        console.log(weatherData);
+        localStorage.setItem('weatherData', JSON.stringify(weatherData));
+        window.location.href = './weather.html';
       })
       .catch((error) => {
         throw new Error('WeatherDataError', error);

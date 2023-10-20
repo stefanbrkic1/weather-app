@@ -15,6 +15,7 @@ module.exports = {
   },
   entry: {
     index: path.resolve(__dirname, './src/index.js'),
+    forecast: path.resolve(__dirname, './src/forecast.js'),
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -57,11 +58,13 @@ module.exports = {
       title: 'WeatherWave',
       filename: 'index.html',
       template: path.resolve(__dirname, './src/pages/index.ejs'),
+      chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
       title: 'WeatherWave | Forecast',
       filename: 'weather.html',
       template: path.resolve(__dirname, './src/pages/weather.ejs'),
+      chunks: ['forecast'],
     }),
   ],
 };
