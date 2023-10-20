@@ -109,6 +109,7 @@ body {
   border-radius: 10px;
   font-family: 'GilroySemiBold' !important;
   font-size: 16rem;
+  border: 1px solid var(--text-color);
   transition: width 300ms ease-in-out;
 }
 
@@ -116,7 +117,7 @@ body {
   border: 1px solid var(--primary-color);
   color: var(--text-color);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-  width: 620px;
+  width: 630px;
 }
 
 .search-container {
@@ -198,6 +199,12 @@ body {
   width: 100%;
   height: 100%;
   max-width: 1200px;
+  opacity: 0;
+}
+
+.opacity-forecast {
+  transition: opacity 300ms ease-in-out;
+  opacity: 1;
 }
 
 .box1,
