@@ -1,6 +1,14 @@
 import './styles/style.css';
 import handleForecastSearch from './modules/search-forecast';
-import { transitionForecast } from './modules/dom';
+import { transitionForecast, setWeatherData } from './modules/dom';
 
-transitionForecast();
-handleForecastSearch();
+function setDataFromStorage() {
+  const weatherData = JSON.parse(localStorage.getItem('weatherData'));
+  setWeatherData(weatherData);
+}
+
+window.onload = () => {
+  transitionForecast();
+  handleForecastSearch();
+  setDataFromStorage();
+};

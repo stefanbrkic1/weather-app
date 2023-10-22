@@ -1,5 +1,10 @@
 import getWeatherData from './weather-api';
-import { addSearchButton, removeSearchButton } from './dom';
+import {
+  addSearchButton,
+  removeSearchButton,
+  setWeatherData,
+  transitionForecast,
+} from './dom';
 
 const searchFormForecast = document.getElementById('searchFormForecast');
 const searchBarForecast = document.getElementById('searchBarForecast');
@@ -30,7 +35,10 @@ function handleSearchSubmit() {
     e.preventDefault();
     getWeatherData(getLocationValue(), 'metric')
       .then((weatherData) => {
-        console.log(weatherData);
+        transitionForecast();
+        setTimeout(() => {
+          setWeatherData(weatherData);
+        }, 1000);
         localStorage.setItem('weatherData', JSON.stringify(weatherData));
         resetInput();
       })

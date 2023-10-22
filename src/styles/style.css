@@ -132,8 +132,8 @@ body {
 }
 
 .opacity-active {
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .search-btn-index {
@@ -350,6 +350,11 @@ body {
 .min-max-temp {
   font-size: 20rem;
   font-family: var(--primary-font-bold);
+}
+
+.temp-flex {
+  display: flex;
+  gap: 5px;
 }
 
 /*Media Queries*/
