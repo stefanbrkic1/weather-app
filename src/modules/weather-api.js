@@ -50,7 +50,8 @@ function getLocalTime(weatherData) {
   );
 
   const hours = localTime.getHours().toString().padStart(2, '0');
-  const formattedTime = `${hours}`;
+  const minutes = localTime.getMinutes().toString().padStart(2, '0');
+  const formattedTime = `${hours}:${minutes}`;
 
   return formattedTime;
 }
@@ -62,7 +63,7 @@ export default async function getWeatherData(city, units) {
   );
   fetchedWeatherData.name = coordinates.name;
   fetchedWeatherData.state = coordinates.state;
-  fetchedWeatherData.localHourTime = getLocalTime(fetchedWeatherData);
+  fetchedWeatherData.localTime = getLocalTime(fetchedWeatherData);
 
   return fetchedWeatherData;
 }

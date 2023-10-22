@@ -4,6 +4,7 @@ const location = document.getElementById('location');
 const date = document.getElementById('date');
 const temp = document.getElementById('temp');
 const description = document.getElementById('weatherDescription');
+const clock = document.getElementById('clock');
 
 export function addSearchButton(searchBtn) {
   searchBtn.classList.remove('opacity-active');
@@ -54,4 +55,5 @@ export function setWeatherData(weatherData) {
   date.textContent = `${getCurrentDate()}`;
   temp.textContent = `${Math.round(weatherData.current.temp)}`;
   description.textContent = createDescriptionString(weatherData);
+  clock.textContent = weatherData.localTime;
 }
