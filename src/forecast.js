@@ -5,6 +5,7 @@ import { transitionForecast, setWeatherData } from './modules/dom';
 function setDataFromStorage() {
   const weatherData = JSON.parse(localStorage.getItem('weatherData'));
   setWeatherData(weatherData);
+  console.log(weatherData);
 }
 
 window.onload = () => {

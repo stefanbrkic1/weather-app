@@ -2,7 +2,7 @@ function makeCoordinatesURL(city) {
   return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=1f88f358bd549e4bfc5d35ed04656723`;
 }
 
-async function fetchCoordinates(url) {
+export async function fetchCoordinates(url) {
   try {
     const response = await fetch(url, { mode: 'cors' });
 
@@ -39,6 +39,22 @@ async function fetchWeatherData(url) {
   }
 }
 
+function getLocalTime(weatherData) {
+  const { timezone } = weatherData;
+  const currentUtcTime = new Date();
+  const localTime = new Date(
+    currentUtcTime.toLocaleString('en-US', {
+      timeZone: timezone,
+      hour12: false,
+    }),
+  );
+
+  const hours = localTime.getHours().toString().padStart(2, '0');
+  const formattedTime = `${hours}`;
+
+  return formattedTime;
+}
+
 export default async function getWeatherData(city, units) {
   const coordinates = await fetchCoordinates(makeCoordinatesURL(city));
   const fetchedWeatherData = await fetchWeatherData(
@@ -46,6 +62,7 @@ export default async function getWeatherData(city, units) {
   );
   fetchedWeatherData.name = coordinates.name;
   fetchedWeatherData.state = coordinates.state;
+  fetchedWeatherData.localHourTime = getLocalTime(fetchedWeatherData);
 
   return fetchedWeatherData;
 }
