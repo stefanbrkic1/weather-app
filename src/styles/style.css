@@ -308,6 +308,48 @@ body {
 .current-weather-box {
   background-color: var(--background-tertiary-color);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  color: var(--text-color);
+}
+
+.current-top {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.current-top-left {
+  flex: 2;
+}
+
+.current-bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.location {
+  font-size: 20rem;
+  font-family: var(--primary-font-bold);
+  margin-bottom: 10px;
+}
+
+.clock {
+  font-family: var(--primary-font-bold);
+  font-size: 20rem;
+}
+
+.temp {
+  font-size: 100rem;
+  font-family: var(--primary-font-bold);
+}
+
+.min-max-temp {
+  font-size: 20rem;
+  font-family: var(--primary-font-bold);
 }
 
 /*Media Queries*/
