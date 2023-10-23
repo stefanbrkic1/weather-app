@@ -215,7 +215,6 @@ body {
 .box3 {
   background: var(--background-secondary-color);
   border-radius: 12px;
-  padding: 20px;
 }
 
 .box1 {
@@ -223,14 +222,17 @@ body {
   display: grid;
   grid-template-rows: 1fr 14fr;
   gap: 13px;
+  padding: 20rem;
 }
 
 .box2 {
   grid-area: 1 / 2 / 2 / 3;
+  padding: 25rem;
 }
 
 .box3 {
   grid-area: 2 / 2 / -2 / -1;
+  padding: 25rem;
 }
 
 .flex {
@@ -473,13 +475,18 @@ body {
     display: flex;
     flex-direction: column;
   }
-  .box1,
-  .box2,
-  .box3 {
-    padding: 14px;
-  }
+
   .box1 {
     grid-template-rows: 1fr 8fr;
+    padding: 14rem;
+  }
+
+  .box2 {
+    padding: 25rem 20rem;
+  }
+
+  .box3 {
+    padding: 25rem 20rem;
   }
 }
 
