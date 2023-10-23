@@ -1,5 +1,5 @@
 function makeCoordinatesURL(city) {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=1f88f358bd549e4bfc5d35ed04656723`;
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=1f88f358bd549e4bfc5d35ed04656723`;
 }
 
 export async function fetchCoordinates(url) {
