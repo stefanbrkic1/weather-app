@@ -233,6 +233,7 @@ body {
 .box3 {
   grid-area: 2 / 2 / -2 / -1;
   padding: 25rem;
+  position: relative;
 }
 
 .flex {
@@ -432,6 +433,47 @@ body {
 .detail-data {
   font-family: var(--primary-font-bold);
   font-size: 16rem;
+}
+
+.forecast-daily {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  padding: 25rem 0rem;
+  font-family: var(--primary-font-semi);
+  color: var(--text-secondary-color);
+  font-size: 14rem;
+}
+
+.day-forecast {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.day-flex {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.min-max-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.weather-image {
+  width: 75rem;
+  height: 75rem;
 }
 
 /*Media Queries*/
