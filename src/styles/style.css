@@ -202,6 +202,7 @@ body {
   width: 100%;
   height: 100%;
   max-width: 1300px;
+  max-height: 700px;
   opacity: 0;
 }
 
@@ -446,6 +447,13 @@ body {
   font-size: 14rem;
 }
 
+.day-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15rem;
+}
+
 .day-forecast {
   height: 100%;
   display: flex;
@@ -453,6 +461,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex: 1;
+  position: relative;
 }
 
 .day-flex {
@@ -471,9 +480,22 @@ body {
   gap: 6px;
 }
 
+.day-absolute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .weather-image {
   width: 75rem;
   height: 75rem;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
 }
 
 /*Media Queries*/
