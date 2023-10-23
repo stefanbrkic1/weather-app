@@ -15,8 +15,11 @@
 
 :root {
   --primary-color: #3671f1;
+
   --text-color: #fbfbfb;
-  --text-secondary-color: #3d3e4d;
+  --text-secondary-color: #bfbfd4;
+  --text-tertiary-color: #7f7f98;
+
   --background-color: #191a22;
   --background-secondary-color: #1c1d27;
   --background-tertiary-color: #222431;
@@ -188,7 +191,7 @@ body {
   overflow: auto;
   justify-content: center;
   align-items: center;
-  padding: 40px 10px;
+  padding: 60px 10px;
 }
 
 .forecast {
@@ -198,7 +201,7 @@ body {
   gap: 25px;
   width: 100%;
   height: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   opacity: 0;
 }
 
@@ -355,6 +358,78 @@ body {
 .temp-flex {
   display: flex;
   gap: 5px;
+}
+
+.box-header {
+  font-family: var(--primary-font-semi);
+  color: var(--text-tertiary-color);
+  font-size: 16rem;
+}
+
+.weather-details {
+  list-style-type: none;
+  color: var(--text-secondary-color);
+  font-family: var(--primary-font-semi);
+  font-size: 14rem;
+  margin-top: 15px;
+}
+
+.weather-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #232431;
+}
+
+.detail-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.25;
+}
+
+#thermalSensationIcon {
+  background: url(../img/icons/thermal.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#rainProbabilityIcon {
+  background: url(../img/icons/rain.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#windSpeedIcon {
+  background: url(../img/icons/wind.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#airHumidityIcon {
+  background: url(../img/icons/humidity.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#uvIndexIcon {
+  background: url(../img/icons/sun.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.detail-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.detail-data {
+  font-family: var(--primary-font-bold);
+  font-size: 16rem;
 }
 
 /*Media Queries*/

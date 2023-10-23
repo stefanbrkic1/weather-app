@@ -5,6 +5,11 @@ const date = document.getElementById('date');
 const temp = document.getElementById('temp');
 const description = document.getElementById('weatherDescription');
 const clock = document.getElementById('clock');
+const thermalSensation = document.getElementById('thermalSensation');
+const rainProbability = document.getElementById('rainProbability');
+const windSpeed = document.getElementById('windSpeed');
+const airHumidity = document.getElementById('airHumidity');
+const uvIndex = document.getElementById('uvIndex');
 
 export function addSearchButton(searchBtn) {
   searchBtn.classList.remove('opacity-active');
@@ -28,26 +33,10 @@ function getCurrentDate(timeZone) {
   return format(currentDate, 'eeee, MMMM dd, yyyy', { timeZone });
 }
 
-function getMinTemp(weatherData) {
-  const minTemp = weatherData.hourly.reduce(
-    (min, current) => Math.min(min, current.temp),
-    weatherData.hourly[0].temp,
-  );
-  return Math.round(minTemp);
-}
-
-function getMaxTemp(weatherData) {
-  const maxTemp = weatherData.hourly.reduce(
-    (max, current) => Math.max(max, current.temp),
-    weatherData.hourly[0].temp,
-  );
-  return Math.round(maxTemp);
-}
-
 function createDescriptionString(weatherData) {
-  return `${getMinTemp(weatherData)}°c / ${getMaxTemp(weatherData)}°c, ${
-    weatherData.current.weather[0].main
-  }`;
+  return `${Math.round(weatherData.daily[0].temp.min)}°c / ${Math.round(
+    weatherData.daily[0].temp.max,
+  )}°c, ${weatherData.current.weather[0].main}`;
 }
 
 export function setWeatherData(weatherData) {
@@ -56,4 +45,11 @@ export function setWeatherData(weatherData) {
   temp.textContent = `${Math.round(weatherData.current.temp)}`;
   description.textContent = createDescriptionString(weatherData);
   clock.textContent = weatherData.localTime;
+  thermalSensation.textContent = `${Math.round(
+    weatherData.current.feels_like,
+  )}°c`;
+  rainProbability.textContent = `${weatherData.daily[0].pop * 100}%`;
+  windSpeed.textContent = `${weatherData.current.wind_speed} km/h`;
+  airHumidity.textContent = `${weatherData.current.humidity}%`;
+  uvIndex.textContent = `${Math.round(weatherData.current.uvi)}`;
 }
