@@ -71,6 +71,16 @@ function getLocalTime(weatherData) {
   return formattedTime;
 }
 
+function getWeatherDescriptions(fetchedWeatherData) {
+  const weatherDescriptions = [];
+  for (let i = 0; i < 6; i += 1) {
+    weatherDescriptions.push(
+      fetchedWeatherData.daily[i].weather[0].description,
+    );
+  }
+  return weatherDescriptions;
+}
+
 export default async function getWeatherData(city, units) {
   const coordinates = await fetchCoordinates(makeCoordinatesURL(city));
   const countryData = await fetchCountryData(coordinates);
@@ -81,6 +91,8 @@ export default async function getWeatherData(city, units) {
   fetchedWeatherData.state = coordinates.state;
   fetchedWeatherData.localTime = getLocalTime(fetchedWeatherData);
   fetchedWeatherData.country = countryData.address.country;
+  fetchedWeatherData.weatherDescriptions =
+    getWeatherDescriptions(fetchedWeatherData);
 
   return fetchedWeatherData;
 }

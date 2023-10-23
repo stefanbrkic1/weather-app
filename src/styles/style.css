@@ -498,6 +498,7 @@ body {
   height: 75rem;
   background-repeat: no-repeat !important;
   background-size: contain !important;
+  background-position: center !important;
 }
 
 .day-min {

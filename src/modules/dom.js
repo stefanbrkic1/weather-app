@@ -1,4 +1,15 @@
 import format from 'date-fns/format';
+import clearSkyImage from '../img/weather-icons/clear.png';
+import fewCloudsImage from '../img/weather-icons/few-clouds.png';
+import brokenCloudsImage from '../img/weather-icons/broken-clouds.png';
+import scatteredCloudsImage from '../img/weather-icons/scattered-clouds.png';
+import overcastCloudsImage from '../img/weather-icons/overcast-clouds.png';
+import lightRainImage from '../img/weather-icons/light-rain.png';
+import rainImage from '../img/weather-icons/rain.png';
+import snowImage from '../img/weather-icons/snow.png';
+import mistImage from '../img/weather-icons/mist.png';
+import rainSnowImage from '../img/weather-icons/rain-snow.png';
+import heavyRainStormImage from '../img/weather-icons/heavy-rain-storm.png';
 
 const location = document.getElementById('location');
 const date = document.getElementById('date');
@@ -53,6 +64,35 @@ function getFutureDays(timeZone) {
   return next5Days;
 }
 
+function getCurrentWeatherImageURL(weatherData, index) {
+  const weatherImageMap = {
+    'clear sky': clearSkyImage,
+    'few clouds': fewCloudsImage,
+    'scattered clouds': scatteredCloudsImage,
+    'broken clouds': brokenCloudsImage,
+    'overcast clouds': overcastCloudsImage,
+    'light rain': lightRainImage,
+    'moderate rain': lightRainImage,
+    'heavy rain': rainImage,
+    'rain and snow': rainSnowImage,
+    mist: mistImage,
+    snow: snowImage,
+    thunderstorm: heavyRainStormImage,
+  };
+
+  // Get the weather description for the specified index
+  const weatherDescription = weatherData.weatherDescriptions[index + 1];
+
+  // Use the mapping to retrieve the image URL; if not found, use the default OWM URL
+  const imageURL =
+    weatherImageMap[weatherDescription] ||
+    `http://openweathermap.org/img/w/${
+      weatherData.daily[index + 1].weather[0].icon
+    }.png`;
+
+  return imageURL;
+}
+
 function setFutureWeatherData(weatherData) {
   const days = getFutureDays(weatherData.timezone);
 
@@ -63,12 +103,11 @@ function setFutureWeatherData(weatherData) {
     const futureMinTemp = container.querySelector('.day-min');
     const futureMaxTemp = container.querySelector('.day-max');
 
-    const iconURL = `http://openweathermap.org/img/w/${
-      weatherData.daily[index + 1].weather[0].icon
-    }.png`;
-
     futureDay.textContent = days[index];
-    futureImage.style.background = `url(${iconURL})`;
+    futureImage.style.background = `url(${getCurrentWeatherImageURL(
+      weatherData,
+      index,
+    )})`;
     futureWeather.textContent = weatherData.daily[index + 1].weather[0].main;
     futureMinTemp.textContent = `${Math.round(
       weatherData.daily[index + 1].temp.min,
