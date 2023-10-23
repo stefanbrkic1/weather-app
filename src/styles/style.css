@@ -545,10 +545,11 @@ body {
   .forecast {
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 
   .box1 {
-    grid-template-rows: 1fr 7fr;
+    grid-template-rows: 1fr 6fr;
     padding: 14rem;
   }
 
