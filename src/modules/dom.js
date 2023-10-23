@@ -23,9 +23,9 @@ export function transitionForecast() {
   }, 1000);
 }
 
-function getCurrentDate() {
+function getCurrentDate(timeZone) {
   const currentDate = new Date();
-  return format(currentDate, 'eeee, MMMM dd, yyyy');
+  return format(currentDate, 'eeee, MMMM dd, yyyy', { timeZone });
 }
 
 function getMinTemp(weatherData) {
@@ -52,7 +52,7 @@ function createDescriptionString(weatherData) {
 
 export function setWeatherData(weatherData) {
   location.textContent = `${weatherData.name}, ${weatherData.country}`;
-  date.textContent = `${getCurrentDate()}`;
+  date.textContent = `${getCurrentDate(weatherData.timezone)}`;
   temp.textContent = `${Math.round(weatherData.current.temp)}`;
   description.textContent = createDescriptionString(weatherData);
   clock.textContent = weatherData.localTime;
