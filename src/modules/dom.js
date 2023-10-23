@@ -14,6 +14,7 @@ import heavyRainStormImage from '../img/weather-icons/heavy-rain-storm.png';
 const location = document.getElementById('location');
 const date = document.getElementById('date');
 const temp = document.getElementById('temp');
+const currentWeatherIcon = document.getElementById('currentWeatherIcon');
 const description = document.getElementById('weatherDescription');
 const clock = document.getElementById('clock');
 const thermalSensation = document.getElementById('thermalSensation');
@@ -64,31 +65,41 @@ function getFutureDays(timeZone) {
   return next5Days;
 }
 
-function getCurrentWeatherImageURL(weatherData, index) {
-  const weatherImageMap = {
-    'clear sky': clearSkyImage,
-    'few clouds': fewCloudsImage,
-    'scattered clouds': scatteredCloudsImage,
-    'broken clouds': brokenCloudsImage,
-    'overcast clouds': overcastCloudsImage,
-    'light rain': lightRainImage,
-    'moderate rain': lightRainImage,
-    'heavy rain': rainImage,
-    'rain and snow': rainSnowImage,
-    mist: mistImage,
-    snow: snowImage,
-    thunderstorm: heavyRainStormImage,
-  };
+const weatherImageMap = {
+  'clear sky': clearSkyImage,
+  'few clouds': fewCloudsImage,
+  'scattered clouds': scatteredCloudsImage,
+  'broken clouds': brokenCloudsImage,
+  'overcast clouds': overcastCloudsImage,
+  'light rain': lightRainImage,
+  'moderate rain': lightRainImage,
+  'heavy rain': rainImage,
+  'rain and snow': rainSnowImage,
+  mist: mistImage,
+  snow: snowImage,
+  thunderstorm: heavyRainStormImage,
+};
 
+function getFutureWeatherImageURL(weatherData, index) {
   // Get the weather description for the specified index
   const weatherDescription = weatherData.weatherDescriptions[index + 1];
-
   // Use the mapping to retrieve the image URL; if not found, use the default OWM URL
   const imageURL =
     weatherImageMap[weatherDescription] ||
     `http://openweathermap.org/img/w/${
       weatherData.daily[index + 1].weather[0].icon
     }.png`;
+
+  return imageURL;
+}
+
+function getCurrentWeatherImageURL(weatherData) {
+  // Get the weather description for the specified index
+  const weatherDescription = weatherData.weatherDescriptions[0];
+  // Use the mapping to retrieve the image URL; if not found, use the default OWM URL
+  const imageURL =
+    weatherImageMap[weatherDescription] ||
+    `http://openweathermap.org/img/w/${weatherData.daily[0].weather[0].icon}.png`;
 
   return imageURL;
 }
@@ -104,7 +115,7 @@ function setFutureWeatherData(weatherData) {
     const futureMaxTemp = container.querySelector('.day-max');
 
     futureDay.textContent = days[index];
-    futureImage.style.background = `url(${getCurrentWeatherImageURL(
+    futureImage.style.background = `url(${getFutureWeatherImageURL(
       weatherData,
       index,
     )})`;
@@ -122,6 +133,9 @@ function setCurrentWeatherData(weatherData) {
   location.textContent = `${weatherData.name}, ${weatherData.country}`;
   date.textContent = `${getCurrentDate(weatherData.timezone)}`;
   temp.textContent = `${Math.round(weatherData.current.temp)}`;
+  currentWeatherIcon.style.background = `url(${getCurrentWeatherImageURL(
+    weatherData,
+  )})`;
   description.textContent = createDescriptionString(weatherData);
   clock.textContent = weatherData.localTime;
   thermalSensation.textContent = `${Math.round(

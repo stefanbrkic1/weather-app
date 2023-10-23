@@ -314,6 +314,7 @@ body {
 }
 
 .current-weather-box {
+  position: relative;
   background-color: var(--background-tertiary-color);
   border-radius: 8px;
   display: flex;
@@ -505,6 +506,17 @@ body {
   color: var(--text-tertiary-color);
 }
 
+.current-weather-icon {
+  position: absolute;
+  width: 220rem;
+  height: 220rem;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  bottom: 30px;
+  right: 30px;
+}
+
 /*Media Queries*/
 
 /*PHONES*/
@@ -587,6 +599,12 @@ body {
   }
   .current-weather-box {
     padding: 15px;
+  }
+  .current-weather-icon {
+    bottom: 0px;
+    right: 0px;
+    width: 150rem;
+    height: 150rem;
   }
 }
 
