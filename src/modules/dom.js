@@ -51,7 +51,7 @@ function createDescriptionString(weatherData) {
 }
 
 export function setWeatherData(weatherData) {
-  location.textContent = `${weatherData.name}, ${weatherData.state}`;
+  location.textContent = `${weatherData.name}, ${weatherData.country}`;
   date.textContent = `${getCurrentDate()}`;
   temp.textContent = `${Math.round(weatherData.current.temp)}`;
   description.textContent = createDescriptionString(weatherData);

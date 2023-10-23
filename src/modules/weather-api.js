@@ -39,6 +39,21 @@ async function fetchWeatherData(url) {
   }
 }
 
+async function fetchCountryData(coordinates) {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coordinates.lat}&lon=${coordinates.lon}`;
+  try {
+    const response = await fetch(url, { mode: 'cors' });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error(`Failed to fetch data: ${error.message}`);
+  }
+}
+
 function getLocalTime(weatherData) {
   const { timezone } = weatherData;
   const currentUtcTime = new Date();
@@ -58,12 +73,14 @@ function getLocalTime(weatherData) {
 
 export default async function getWeatherData(city, units) {
   const coordinates = await fetchCoordinates(makeCoordinatesURL(city));
+  const countryData = await fetchCountryData(coordinates);
   const fetchedWeatherData = await fetchWeatherData(
     makeWeatherURL(coordinates, units),
   );
   fetchedWeatherData.name = coordinates.name;
   fetchedWeatherData.state = coordinates.state;
   fetchedWeatherData.localTime = getLocalTime(fetchedWeatherData);
+  fetchedWeatherData.country = countryData.address.country;
 
   return fetchedWeatherData;
 }
