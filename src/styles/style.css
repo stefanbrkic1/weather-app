@@ -188,7 +188,7 @@ body {
   background: var(--background-color);
   position: relative;
   display: flex;
-  overflow: auto;
+  overflow-y: auto;
   justify-content: center;
   align-items: center;
   padding: 60px 10px;
@@ -203,6 +203,7 @@ body {
   height: 100%;
   max-width: 1300px;
   max-height: 700px;
+  min-height: 700px;
   opacity: 0;
 }
 
@@ -478,6 +479,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  font-family: var(--primary-font-bold);
 }
 
 .day-absolute {
@@ -496,6 +498,10 @@ body {
   height: 75rem;
   background-repeat: no-repeat !important;
   background-size: contain !important;
+}
+
+.day-min {
+  color: var(--text-tertiary-color);
 }
 
 /*Media Queries*/
@@ -533,15 +539,17 @@ body {
     font-size: 16rem;
   }
   .forecast-container {
-    padding: 14px;
+    padding: 15px;
+    align-items: baseline;
   }
   .forecast {
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
   }
 
   .box1 {
-    grid-template-rows: 1fr 8fr;
+    grid-template-rows: 1fr 7fr;
     padding: 14rem;
   }
 
@@ -551,6 +559,28 @@ body {
 
   .box3 {
     padding: 25rem 20rem;
+    min-height: 250rem;
+  }
+  .location {
+    font-size: 18rem;
+  }
+  .date {
+    font-size: 14rem;
+  }
+  .clock {
+    font-size: 18rem;
+  }
+  .temp {
+    font-size: 60rem;
+  }
+  .min-max-temp {
+    font-size: 18rem;
+  }
+  .min-max-container {
+    flex-direction: column;
+  }
+  .weather-description {
+    display: none;
   }
 }
 

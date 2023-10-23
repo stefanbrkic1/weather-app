@@ -72,7 +72,7 @@ function setFutureWeatherData(weatherData) {
     futureWeather.textContent = weatherData.daily[index + 1].weather[0].main;
     futureMinTemp.textContent = `${Math.round(
       weatherData.daily[index + 1].temp.min,
-    )}°c/`;
+    )}°c`;
     futureMaxTemp.textContent = `${Math.round(
       weatherData.daily[index + 1].temp.max,
     )}°c`;
