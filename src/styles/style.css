@@ -539,13 +539,12 @@ body {
     font-size: 16rem;
   }
   .forecast-container {
+    display: block;
     padding: 15px;
-    align-items: baseline;
   }
   .forecast {
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px;
   }
 
   .box1 {
@@ -559,7 +558,7 @@ body {
 
   .box3 {
     padding: 25rem 20rem;
-    min-height: 250rem;
+    min-height: 300rem;
   }
   .location {
     font-size: 18rem;
@@ -579,8 +578,10 @@ body {
   .min-max-container {
     flex-direction: column;
   }
-  .weather-description {
-    display: none;
+  .day-absolute {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
