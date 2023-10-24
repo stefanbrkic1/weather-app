@@ -11,6 +11,12 @@ import mistImage from '../img/weather-icons/mist.png';
 import heavyRainStormImage from '../img/weather-icons/heavy-rain-storm.png';
 import heavyRainImage from '../img/weather-icons/heavy-rain.png';
 import thunderstormImage from '../img/weather-icons/thunder.png';
+import clearNightImage from '../img/weather-icons/night-clear.png';
+import fewCloudsNightImage from '../img/weather-icons/night-few-clouds.png';
+import cloudsNightImage from '../img/weather-icons/night-cloudy.png';
+import rainNightImage from '../img/weather-icons/night-rain.png';
+import lightRainNightImage from '../img/weather-icons/night-light-rain.png';
+import overcastCloudsNightImage from '../img/weather-icons/night-overcast-clouds.png';
 
 const location = document.getElementById('location');
 const date = document.getElementById('date');
@@ -91,6 +97,56 @@ const weatherImageMap = {
   'overcast clouds': overcastCloudsImage,
   'light rain': lightRainImage,
   'moderate rain': moderateRainImage,
+  'heavy rain': rainNightImage,
+  'heavy intensity rain': rainNightImage,
+  'very heavy rain': rainNightImage,
+  'extreme rain': rainNightImage,
+  'freezing rain': rainNightImage,
+  'rain and snow': rainNightImage,
+  'light intensity shower rain': rainNightImage,
+  'shower rain': rainNightImage,
+  'heavy intensity shower rain': rainNightImage,
+  'ragged shower rain': rainNightImage,
+  'light thunderstorm': thunderstormImage,
+  'heavy thunderstorm': thunderstormImage,
+  'ragged thunderstorm': thunderstormImage,
+  'thunderstorm with light drizzle': thunderstormImage,
+  'thunderstorm with drizzle': thunderstormImage,
+  'thunderstorm with heavy drizzle': thunderstormImage,
+  'thunderstorm with light rain': thunderstormImage,
+  'thunderstorm with rain': heavyRainStormImage,
+  'thunderstorm with heavy rain': heavyRainStormImage,
+  'light snow': snowImage,
+  'heavy snow': snowImage,
+  'light shower sleet': snowImage,
+  'shower sleet': snowImage,
+  'light rain and snow': snowImage,
+  'heavy shower snow': snowImage,
+  'light shower snow': snowImage,
+  'shower snow': snowImage,
+  'sand/dust whirls': mistImage,
+  'volcanic ash': mistImage,
+  sleet: snowImage,
+  mist: mistImage,
+  squalls: mistImage,
+  tornado: mistImage,
+  fog: mistImage,
+  sand: mistImage,
+  dust: mistImage,
+  smoke: mistImage,
+  haze: mistImage,
+  snow: snowImage,
+  thunderstorm: thunderstormImage,
+};
+
+const nightWeatherImageMap = {
+  'clear sky': clearNightImage,
+  'few clouds': fewCloudsNightImage,
+  'scattered clouds': cloudsNightImage,
+  'broken clouds': cloudsNightImage,
+  'overcast clouds': overcastCloudsNightImage,
+  'light rain': lightRainNightImage,
+  'moderate rain': lightRainNightImage,
   'heavy rain': rainImage,
   'heavy intensity rain': heavyRainImage,
   'very heavy rain': heavyRainImage,
@@ -146,10 +202,17 @@ function getFutureWeatherImageURL(weatherData, index) {
 
 function getCurrentWeatherImageURL(weatherData) {
   const weatherDescription = weatherData.current.weather[0].description;
-  const imageURL =
-    weatherImageMap[weatherDescription] ||
-    `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
-
+  const timeOfDay = weatherData.current.weather[0].icon.slice(2, 3);
+  let imageURL = '';
+  if (timeOfDay === 'd') {
+    imageURL =
+      weatherImageMap[weatherDescription] ||
+      `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
+  } else {
+    imageURL =
+      nightWeatherImageMap[weatherDescription] ||
+      `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
+  }
   return imageURL;
 }
 
