@@ -504,8 +504,8 @@ body {
 }
 
 .weather-image {
-  width: 75rem;
-  height: 75rem;
+  width: 84rem;
+  height: 84rem;
   background-repeat: no-repeat !important;
   background-size: contain !important;
   background-position: center !important;
@@ -601,7 +601,7 @@ body {
   .day-absolute {
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-57%, -55%);
   }
   .current-weather-box {
     padding: 15px;
@@ -625,8 +625,8 @@ body {
     transform: translate(-0%, -50%);
   }
   .weather-image {
-    width: 65rem;
-    height: 65rem;
+    width: 68rem;
+    height: 68rem;
   }
   .day-bottom {
     gap: 25rem;
