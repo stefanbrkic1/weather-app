@@ -81,9 +81,7 @@ const weatherImageMap = {
 };
 
 function getFutureWeatherImageURL(weatherData, index) {
-  // Get the weather description for the specified index
   const weatherDescription = weatherData.weatherDescriptions[index + 1];
-  // Use the mapping to retrieve the image URL; if not found, use the default OWM URL
   const imageURL =
     weatherImageMap[weatherDescription] ||
     `http://openweathermap.org/img/w/${
@@ -94,9 +92,7 @@ function getFutureWeatherImageURL(weatherData, index) {
 }
 
 function getCurrentWeatherImageURL(weatherData) {
-  // Get the weather description for the specified index
   const weatherDescription = weatherData.weatherDescriptions[0];
-  // Use the mapping to retrieve the image URL; if not found, use the default OWM URL
   const imageURL =
     weatherImageMap[weatherDescription] ||
     `http://openweathermap.org/img/w/${weatherData.daily[0].weather[0].icon}.png`;
