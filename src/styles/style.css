@@ -149,13 +149,13 @@ body {
   height: 34px;
   border-radius: 8px;
   cursor: pointer;
-  right: 9px;
-  top: 9px;
-  bottom: 9px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: opacity 200ms ease-in-out;
+  top: 50%;
+  right: 0px;
+  transform: translate(-30%, -50%);
 }
 
 .github-container {
@@ -248,7 +248,7 @@ body {
 
 .logo-container-forecast {
   background: var(--background-tertiary-color);
-  padding: 15px;
+  padding: 18px;
   border-radius: 8px;
   color: var(--text-color);
   display: flex;
@@ -269,12 +269,13 @@ body {
   appearance: none;
   outline: none;
   border: none;
-  padding: 14px;
+  padding: 15px;
   background: var(--background-tertiary-color);
   border-radius: 8px;
   font-family: 'GilroySemiBold', sans-serif;
-  font-size: 16rem;
+  font-size: 18rem;
   position: relative;
+  color: var(--text-tertiary-color);
 }
 
 .search-bar-forecast:focus {
@@ -291,13 +292,17 @@ body {
   border: none;
   position: absolute;
   background: var(--primary-color);
-  width: 34px;
-  height: 34px;
-  border-radius: 6px;
-  right: 8px;
-  top: 8px;
+  width: 37px;
+  height: 37px;
+  border-radius: 8px;
   cursor: pointer;
+  right: 8px;
   transition: all 200ms ease-in-out;
+}
+
+.search-btn-forecast:hover {
+  background: #3474ff;
+  transform: scale(1.1);
 }
 
 .search-icon {
@@ -348,7 +353,7 @@ body {
 
 .clock {
   font-family: var(--primary-font-bold);
-  font-size: 20rem;
+  font-size: 25rem;
 }
 
 .temp {
@@ -535,11 +540,8 @@ body {
     padding: 12px 14px;
   }
   .search-container {
-    width: 32px;
-    height: 32px;
-    right: 6px;
-    top: 6px;
-    bottom: 6px;
+    width: 32rem;
+    height: 32rem;
   }
   .search-bar-index:focus {
     width: 100%;
@@ -605,6 +607,18 @@ body {
     right: 0px;
     width: 150rem;
     height: 150rem;
+  }
+  .search-container {
+    width: 20rem;
+    height: 20rem;
+  }
+  .search-btn-index {
+    border-radius: 0px;
+    width: 53px;
+    height: 47px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transform: translate(-0%, -50%);
   }
 }
 

@@ -1,24 +1,8 @@
 import getWeatherData from './weather-api';
-import {
-  addSearchButton,
-  removeSearchButton,
-  setWeatherData,
-  transitionForecast,
-} from './dom';
+import { setWeatherData, transitionForecast } from './dom';
 
 const searchFormForecast = document.getElementById('searchFormForecast');
 const searchBarForecast = document.getElementById('searchBarForecast');
-const searchBtnForecast = document.getElementById('searchBtnForecast');
-
-function handleSearchInput() {
-  searchBarForecast.addEventListener('input', () => {
-    if (searchBarForecast.value !== '') {
-      addSearchButton(searchBtnForecast);
-    } else {
-      removeSearchButton(searchBtnForecast);
-    }
-  });
-}
 
 function getLocationValue() {
   const inputValue = searchBarForecast.value;
@@ -30,7 +14,7 @@ function resetInput() {
   searchBarForecast.blur();
 }
 
-function handleSearchSubmit() {
+export default function handleForecastSearch() {
   searchFormForecast.addEventListener('submit', (e) => {
     e.preventDefault();
     getWeatherData(getLocationValue(), 'metric')
@@ -46,9 +30,4 @@ function handleSearchSubmit() {
         throw new Error('WeatherDataError', error);
       });
   });
-}
-
-export default function handleForecastSearch() {
-  handleSearchInput();
-  handleSearchSubmit();
 }

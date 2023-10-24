@@ -25,14 +25,6 @@ const airHumidity = document.getElementById('airHumidity');
 const uvIndex = document.getElementById('uvIndex');
 const futureForecastContainers = document.querySelectorAll('.day-forecast');
 
-export function addSearchButton(searchBtn) {
-  searchBtn.classList.remove('opacity-active');
-}
-
-export function removeSearchButton(searchBtn) {
-  searchBtn.classList.add('opacity-active');
-}
-
 export function transitionForecast() {
   const forecast = document.querySelector('.forecast');
   forecast.classList.add('opacity-active');
