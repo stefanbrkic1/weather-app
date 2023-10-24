@@ -4,6 +4,17 @@ import { setWeatherData, transitionForecast } from './dom';
 const searchFormForecast = document.getElementById('searchFormForecast');
 const searchBarForecast = document.getElementById('searchBarForecast');
 
+function capitalizeFirstCharacter() {
+  const inputValue = searchBarForecast.value;
+
+  if (inputValue.length > 0) {
+    searchBarForecast.value =
+      inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+  }
+}
+
+searchBarForecast.addEventListener('input', capitalizeFirstCharacter);
+
 function getLocationValue() {
   const inputValue = searchBarForecast.value;
   return inputValue.trim().toLowerCase();
