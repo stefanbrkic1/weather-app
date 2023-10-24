@@ -346,7 +346,7 @@ body {
 }
 
 .location {
-  font-size: 20rem;
+  font-size: 22rem;
   font-family: var(--primary-font-bold);
   margin-bottom: 10px;
 }
@@ -524,6 +524,10 @@ body {
   background-size: contain !important;
   bottom: 30px;
   right: 30px;
+}
+
+.date {
+  font-family: var(--primary-font-semi);
 }
 
 /*Media Queries*/
