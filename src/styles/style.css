@@ -567,6 +567,10 @@ body {
     gap: 20px;
   }
 
+  .forecast-daily {
+    font-size: 16rem;
+  }
+
   .box1 {
     grid-template-rows: 1fr 6fr;
     padding: 14rem;
@@ -578,7 +582,7 @@ body {
 
   .box3 {
     padding: 25rem 20rem;
-    min-height: 290rem;
+    min-height: 250rem;
   }
   .location {
     font-size: 18rem;
@@ -601,7 +605,7 @@ body {
   .day-absolute {
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -45%);
   }
   .current-weather-box {
     padding: 15px;
@@ -630,6 +634,10 @@ body {
   }
   .day-bottom {
     gap: 25rem;
+  }
+
+  .weather-description {
+    display: none;
   }
 }
 
