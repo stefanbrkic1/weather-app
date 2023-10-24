@@ -504,8 +504,8 @@ body {
 }
 
 .weather-image {
-  width: 84rem;
-  height: 84rem;
+  width: 80rem;
+  height: 80rem;
   background-repeat: no-repeat !important;
   background-size: contain !important;
   background-position: center !important;

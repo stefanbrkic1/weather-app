@@ -19,6 +19,7 @@ export default function handleForecastSearch() {
     e.preventDefault();
     getWeatherData(getLocationValue(), 'metric')
       .then((weatherData) => {
+        console.log(weatherData);
         transitionForecast();
         setTimeout(() => {
           setWeatherData(weatherData);
