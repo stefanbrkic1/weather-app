@@ -47,10 +47,8 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
-  background: url(../img/background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
+  background: var(--background-color);
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -127,7 +125,7 @@ body {
   width: 20px;
   height: 20px;
   background: transparent;
-  background-image: url(../img/search-bold.svg);
+  background-image: url(../img/icons/search-bold.svg);
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -175,7 +173,7 @@ body {
 .github {
   width: 25px;
   height: 25px;
-  background-image: url(../img/github.png);
+  background-image: url(../img/icons/github.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -309,7 +307,7 @@ body {
   width: 17px;
   height: 17px;
   background: transparent;
-  background-image: url(../img/search-bold.svg);
+  background-image: url(../img/icons/search-bold.svg);
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
