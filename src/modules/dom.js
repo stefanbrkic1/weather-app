@@ -89,7 +89,7 @@ function createDescriptionString(weatherData) {
   )}°c, ${weatherData.current.weather[0].main}`;
 }
 
-const weatherImageMap = {
+const weatherIconMap = {
   'clear sky': clearSkyImage,
   'few clouds': fewCloudsImage,
   'scattered clouds': brokenCloudsImage,
@@ -139,7 +139,7 @@ const weatherImageMap = {
   thunderstorm: thunderstormImage,
 };
 
-const nightWeatherImageMap = {
+const nightWeatherIconMap = {
   'clear sky': clearNightImage,
   'few clouds': fewCloudsNightImage,
   'scattered clouds': cloudsNightImage,
@@ -192,7 +192,7 @@ const nightWeatherImageMap = {
 function getFutureWeatherImageURL(weatherData, index) {
   const weatherDescription = weatherData.weatherDescriptions[index + 1];
   const imageURL =
-    weatherImageMap[weatherDescription] ||
+    weatherIconMap[weatherDescription] ||
     `http://openweathermap.org/img/wn/${
       weatherData.daily[index + 1].weather[0].icon
     }@2x.png`;
@@ -206,11 +206,11 @@ function getCurrentWeatherImageURL(weatherData) {
   let imageURL = '';
   if (timeOfDay === 'd') {
     imageURL =
-      weatherImageMap[weatherDescription] ||
+      weatherIconMap[weatherDescription] ||
       `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
   } else {
     imageURL =
-      nightWeatherImageMap[weatherDescription] ||
+      nightWeatherIconMap[weatherDescription] ||
       `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
   }
   return imageURL;

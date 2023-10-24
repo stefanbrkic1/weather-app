@@ -568,11 +568,13 @@ body {
   .forecast {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
 
   .forecast-daily {
     font-size: 16rem;
+    padding: 0rem;
+    height: 87%;
   }
 
   .box1 {
@@ -585,7 +587,7 @@ body {
   }
 
   .box3 {
-    padding: 25rem 20rem;
+    padding: 0rem 20rem;
     min-height: 250rem;
   }
   .location {
@@ -639,9 +641,18 @@ body {
   .day-bottom {
     gap: 25rem;
   }
-
   .weather-description {
     display: none;
+  }
+  .logo-container-forecast {
+    display: none;
+  }
+  .day-forecast {
+    height: 70%;
+    margin-bottom: 17px;
+  }
+  .padding-top {
+    padding-top: 25rem;
   }
 }
 
