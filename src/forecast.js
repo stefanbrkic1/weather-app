@@ -1,15 +1,11 @@
 import './styles/style.css';
 import handleForecastSearch from './modules/search-forecast';
-import { transitionForecast, setWeatherData } from './modules/dom';
-
-function setDataFromStorage() {
-  const weatherData = JSON.parse(localStorage.getItem('weatherData'));
-  setWeatherData(weatherData);
-  console.log(weatherData);
-}
+import { transitionForecast, setWeatherData, handleText } from './modules/dom';
 
 window.onload = () => {
+  const weatherData = JSON.parse(localStorage.getItem('weatherData'));
   transitionForecast();
   handleForecastSearch();
-  setDataFromStorage();
+  setWeatherData(weatherData);
+  handleText(weatherData);
 };

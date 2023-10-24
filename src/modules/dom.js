@@ -24,6 +24,7 @@ const windSpeed = document.getElementById('windSpeed');
 const airHumidity = document.getElementById('airHumidity');
 const uvIndex = document.getElementById('uvIndex');
 const futureForecastContainers = document.querySelectorAll('.day-forecast');
+const dayContainers = document.querySelectorAll('.day');
 
 export function transitionForecast() {
   const forecast = document.querySelector('.forecast');
@@ -32,17 +33,6 @@ export function transitionForecast() {
     forecast.classList.remove('opacity-active');
     forecast.classList.add('opacity-forecast');
   }, 1000);
-}
-
-function getCurrentDate(timeZone) {
-  const currentDate = new Date();
-  return format(currentDate, 'eeee, MMMM dd, yyyy', { timeZone });
-}
-
-function createDescriptionString(weatherData) {
-  return `${Math.round(weatherData.daily[0].temp.min)}°c / ${Math.round(
-    weatherData.daily[0].temp.max,
-  )}°c, ${weatherData.current.weather[0].main}`;
 }
 
 function getFutureDays(timeZone) {
@@ -56,6 +46,41 @@ function getFutureDays(timeZone) {
   }
 
   return next5Days;
+}
+
+const smallScreenMediaQuery = window.matchMedia('(max-width: 768px)');
+
+function changeDayTextLength(mediaQuery, weatherData) {
+  const days = getFutureDays(weatherData.timezone);
+  if (mediaQuery.matches) {
+    dayContainers.forEach((day, index) => {
+      const currentDay = day;
+      currentDay.textContent = days[index].slice(0, 3);
+    });
+  } else {
+    dayContainers.forEach((day, index) => {
+      const currentDay = day;
+      currentDay.textContent = days[index];
+    });
+  }
+}
+
+export function handleText(weatherData) {
+  changeDayTextLength(smallScreenMediaQuery, weatherData);
+  smallScreenMediaQuery.addEventListener('change', () => {
+    changeDayTextLength(smallScreenMediaQuery, weatherData);
+  });
+}
+
+function getCurrentDate(timeZone) {
+  const currentDate = new Date();
+  return format(currentDate, 'eeee, MMMM dd, yyyy', { timeZone });
+}
+
+function createDescriptionString(weatherData) {
+  return `${Math.round(weatherData.daily[0].temp.min)}°c / ${Math.round(
+    weatherData.daily[0].temp.max,
+  )}°c, ${weatherData.current.weather[0].main}`;
 }
 
 const weatherImageMap = {
