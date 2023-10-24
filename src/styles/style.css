@@ -500,7 +500,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-57%, -60%);
+  transform: translate(-50%, -60%);
 }
 
 .weather-image {
@@ -601,7 +601,7 @@ body {
   .day-absolute {
     top: 40%;
     left: 50%;
-    transform: translate(-57%, -55%);
+    transform: translate(-50%, -55%);
   }
   .current-weather-box {
     padding: 15px;
