@@ -2,14 +2,15 @@ import format from 'date-fns/format';
 import clearSkyImage from '../img/weather-icons/clear.png';
 import fewCloudsImage from '../img/weather-icons/few-clouds.png';
 import brokenCloudsImage from '../img/weather-icons/broken-clouds.png';
-import scatteredCloudsImage from '../img/weather-icons/scattered-clouds.png';
 import overcastCloudsImage from '../img/weather-icons/overcast-clouds.png';
 import lightRainImage from '../img/weather-icons/light-rain.png';
 import rainImage from '../img/weather-icons/rain.png';
+import moderateRainImage from '../img/weather-icons/moderate-rain.png';
 import snowImage from '../img/weather-icons/snow.png';
 import mistImage from '../img/weather-icons/mist.png';
-import rainSnowImage from '../img/weather-icons/rain-snow.png';
 import heavyRainStormImage from '../img/weather-icons/heavy-rain-storm.png';
+import heavyRainImage from '../img/weather-icons/heavy-rain.png';
+import thunderstormImage from '../img/weather-icons/thunder.png';
 
 const location = document.getElementById('location');
 const date = document.getElementById('date');
@@ -68,34 +69,69 @@ function getFutureDays(timeZone) {
 const weatherImageMap = {
   'clear sky': clearSkyImage,
   'few clouds': fewCloudsImage,
-  'scattered clouds': scatteredCloudsImage,
+  'scattered clouds': brokenCloudsImage,
   'broken clouds': brokenCloudsImage,
   'overcast clouds': overcastCloudsImage,
   'light rain': lightRainImage,
-  'moderate rain': lightRainImage,
+  'moderate rain': moderateRainImage,
   'heavy rain': rainImage,
-  'rain and snow': rainSnowImage,
+  'heavy intensity rain': heavyRainImage,
+  'very heavy rain': heavyRainImage,
+  'extreme rain': heavyRainImage,
+  'freezing rain': snowImage,
+  'rain and snow': snowImage,
+  'light intensity shower rain': rainImage,
+  'shower rain': rainImage,
+  'heavy intensity shower rain': rainImage,
+  'ragged shower rain': rainImage,
+  'light thunderstorm': thunderstormImage,
+  'heavy thunderstorm': thunderstormImage,
+  'ragged thunderstorm': thunderstormImage,
+  'thunderstorm with light drizzle': thunderstormImage,
+  'thunderstorm with drizzle': thunderstormImage,
+  'thunderstorm with heavy drizzle': thunderstormImage,
+  'thunderstorm with light rain': thunderstormImage,
+  'thunderstorm with rain': heavyRainStormImage,
+  'thunderstorm with heavy rain': heavyRainStormImage,
+  'light snow': snowImage,
+  'heavy snow': snowImage,
+  'light shower sleet': snowImage,
+  'shower sleet': snowImage,
+  'light rain and snow': snowImage,
+  'heavy shower snow': snowImage,
+  'light shower snow': snowImage,
+  'shower snow': snowImage,
+  'sand/dust whirls': mistImage,
+  'volcanic ash': mistImage,
+  sleet: snowImage,
   mist: mistImage,
+  squalls: mistImage,
+  tornado: mistImage,
+  fog: mistImage,
+  sand: mistImage,
+  dust: mistImage,
+  smoke: mistImage,
+  haze: mistImage,
   snow: snowImage,
-  thunderstorm: heavyRainStormImage,
+  thunderstorm: thunderstormImage,
 };
 
 function getFutureWeatherImageURL(weatherData, index) {
   const weatherDescription = weatherData.weatherDescriptions[index + 1];
   const imageURL =
     weatherImageMap[weatherDescription] ||
-    `http://openweathermap.org/img/w/${
+    `http://openweathermap.org/img/wn/${
       weatherData.daily[index + 1].weather[0].icon
-    }.png`;
+    }@2x.png`;
 
   return imageURL;
 }
 
 function getCurrentWeatherImageURL(weatherData) {
-  const weatherDescription = weatherData.weatherDescriptions[0];
+  const weatherDescription = weatherData.current.weather[0].description;
   const imageURL =
     weatherImageMap[weatherDescription] ||
-    `http://openweathermap.org/img/w/${weatherData.daily[0].weather[0].icon}.png`;
+    `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
 
   return imageURL;
 }
