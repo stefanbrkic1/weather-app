@@ -36,6 +36,7 @@ const location = document.getElementById('location');
 const date = document.getElementById('date');
 const temp = document.getElementById('temp');
 const currentWeatherIcon = document.getElementById('currentWeatherIcon');
+const minMaxTempContainer = document.getElementById('minMaxTemp');
 const description = document.getElementById('weatherDescription');
 const clock = document.getElementById('clock');
 const thermalSensation = document.getElementById('thermalSensation');
@@ -97,10 +98,21 @@ function getCurrentDate(timeZone) {
   return format(currentDate, 'eeee, MMMM dd, yyyy', { timeZone });
 }
 
-function createDescriptionString(weatherData) {
+function createMinMaxString(weatherData) {
   return `${Math.round(weatherData.daily[0].temp.min)}°c / ${Math.round(
     weatherData.daily[0].temp.max,
-  )}°c, ${weatherData.current.weather[0].main}`;
+  )}°c`;
+}
+
+function createDescriptionString(weatherData) {
+  const weatherDescription = weatherData.current.weather[0].description;
+  return weatherDescription
+    .split(' ')
+    .map(
+      (string) =>
+        `${string.charAt(0).toUpperCase() + string.slice(1, string.length)}`,
+    )
+    .join(' ');
 }
 
 const weatherIconMap = {
@@ -378,7 +390,8 @@ function setCurrentWeatherData(weatherData) {
   currentWeatherIcon.style.background = `url(${getCurrentWeatherIconURL(
     weatherData,
   )})`;
-  description.textContent = createDescriptionString(weatherData);
+  description.textContent = `${createDescriptionString(weatherData)}`;
+  minMaxTempContainer.textContent = `${createMinMaxString(weatherData)}`;
   clock.textContent = weatherData.localTime;
   thermalSensation.textContent = `${Math.round(
     weatherData.current.feels_like,
