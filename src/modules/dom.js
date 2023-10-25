@@ -129,7 +129,7 @@ function getCurrentWeatherImageURL(weatherData) {
   return imageURL;
 }
 
-function setFutureWeatherData(weatherData) {
+function displayDailyWeatherData(weatherData) {
   const days = getFutureDays(weatherData.timezone);
 
   futureForecastContainers.forEach((container, index) => {
@@ -154,7 +154,7 @@ function setFutureWeatherData(weatherData) {
   });
 }
 
-function setCurrentWeatherData(weatherData) {
+function displayCurrentWeatherData(weatherData) {
   currentWeatherBox.style.background = `url(${getCurrentWeatherImageURL(
     weatherData,
   )})`;
@@ -176,7 +176,7 @@ function setCurrentWeatherData(weatherData) {
   uvIndex.textContent = `${Math.round(weatherData.current.uvi)}`;
 }
 
-export function setWeatherData(weatherData) {
-  setCurrentWeatherData(weatherData);
-  setFutureWeatherData(weatherData);
+export function displayWeatherData(weatherData) {
+  displayCurrentWeatherData(weatherData);
+  displayDailyWeatherData(weatherData);
 }
