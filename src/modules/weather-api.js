@@ -7,7 +7,7 @@ export async function fetchCoordinates(url) {
     const response = await fetch(url, { mode: 'cors' });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Coordinates API response was not ok');
     }
     const data = await response.json();
     return {
@@ -30,7 +30,7 @@ async function fetchWeatherData(url) {
     const response = await fetch(url, { mode: 'cors' });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Weather Data API response was not ok');
     }
     const data = await response.json();
     return data;
@@ -45,7 +45,7 @@ async function fetchCountryData(coordinates) {
     const response = await fetch(url, { mode: 'cors' });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Country Data API response was not ok');
     }
     const data = await response.json();
     return data;

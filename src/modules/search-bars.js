@@ -25,31 +25,52 @@ function resetInput() {
   searchBarForecast.blur();
 }
 
+let isIndexInputInvalid = false;
+
 export function handleIndexSearchBar() {
   searchBarIndex.addEventListener('input', () => {
     capitalizeFirstCharacter(searchBarIndex);
+
+    if (isIndexInputInvalid) {
+      searchBarIndex.setCustomValidity('');
+      isIndexInputInvalid = false;
+    }
   });
   searchFormIndex.addEventListener('submit', (e) => {
     e.preventDefault();
     getWeatherData(getLocationValue(searchBarIndex), 'metric')
       .then((weatherData) => {
+        searchBarIndex.setCustomValidity('');
+        isIndexInputInvalid = false;
         localStorage.setItem('weatherData', JSON.stringify(weatherData));
         window.location.href = './weather.html';
       })
       .catch((error) => {
-        throw new Error('WeatherDataError', error);
+        console.error('WeatherDataError', error);
+        searchBarIndex.value = '';
+        searchBarIndex.setCustomValidity('Location not found, try again');
+        searchFormIndex.reportValidity();
+        isIndexInputInvalid = true;
       });
   });
 }
 
+let isForecastInputInvalid = false;
+
 export function handleForecastSearch() {
   searchBarForecast.addEventListener('input', () => {
     capitalizeFirstCharacter(searchBarForecast);
+
+    if (isForecastInputInvalid) {
+      searchBarForecast.setCustomValidity('');
+      isForecastInputInvalid = false;
+    }
   });
   searchFormForecast.addEventListener('submit', (e) => {
     e.preventDefault();
     getWeatherData(getLocationValue(searchBarForecast), 'metric')
       .then((weatherData) => {
+        isForecastInputInvalid = false;
         transitionForecast();
         setTimeout(() => {
           displayWeatherData(weatherData);
@@ -58,7 +79,11 @@ export function handleForecastSearch() {
         resetInput();
       })
       .catch((error) => {
-        throw new Error('WeatherDataError', error);
+        console.error('WeatherDataError', error);
+        searchBarForecast.value = '';
+        searchBarForecast.setCustomValidity('Location not found, try again');
+        searchFormForecast.reportValidity();
+        isForecastInputInvalid = true;
       });
   });
 }
