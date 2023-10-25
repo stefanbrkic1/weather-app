@@ -25,7 +25,7 @@ function resetInput() {
   searchBarForecast.blur();
 }
 
-export function handleSearch() {
+export function handleIndexSearchBar() {
   searchBarIndex.addEventListener('input', () => {
     capitalizeFirstCharacter(searchBarIndex);
   });
@@ -50,7 +50,6 @@ export function handleForecastSearch() {
     e.preventDefault();
     getWeatherData(getLocationValue(searchBarForecast), 'metric')
       .then((weatherData) => {
-        console.log(weatherData);
         transitionForecast();
         setTimeout(() => {
           displayWeatherData(weatherData);

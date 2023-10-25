@@ -1,4 +1,6 @@
 import './styles/style.css';
-import { handleSearch } from './modules/search-bars';
+import { handleIndexSearchBar } from './modules/search-bars';
 
-handleSearch();
+window.onload = () => {
+  handleIndexSearchBar();
+};
