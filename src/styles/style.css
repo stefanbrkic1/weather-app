@@ -319,6 +319,9 @@ body {
 .current-weather-box {
   position: relative;
   background-color: var(--background-tertiary-color);
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -520,8 +523,8 @@ body {
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: contain !important;
-  bottom: 30px;
-  right: 30px;
+  bottom: 0px;
+  right: 15px;
 }
 
 .date {
@@ -615,7 +618,7 @@ body {
     padding: 15px;
   }
   .current-weather-icon {
-    bottom: 0px;
+    bottom: -12px;
     right: 0px;
     width: 150rem;
     height: 150rem;

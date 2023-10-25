@@ -1,22 +1,37 @@
 import format from 'date-fns/format';
-import clearSkyImage from '../img/weather-icons/clear.png';
-import fewCloudsImage from '../img/weather-icons/few-clouds.png';
-import brokenCloudsImage from '../img/weather-icons/sunny-clouds.png';
-import overcastCloudsImage from '../img/weather-icons/overcast-clouds.png';
-import lightRainImage from '../img/weather-icons/light-rain.png';
-import rainImage from '../img/weather-icons/rain.png';
-import snowImage from '../img/weather-icons/snow.png';
-import mistImage from '../img/weather-icons/mist.png';
-import heavyRainStormImage from '../img/weather-icons/heavy-rain-storm.png';
-import heavyRainImage from '../img/weather-icons/heavy-rain.png';
-import thunderstormImage from '../img/weather-icons/thunder.png';
-import clearNightImage from '../img/weather-icons/night-clear.png';
-import fewCloudsNightImage from '../img/weather-icons/night-few-clouds.png';
+import clearSkyIcon from '../img/weather-icons/clear.png';
+import fewCloudsIcon from '../img/weather-icons/few-clouds.png';
+import brokenCloudsIcon from '../img/weather-icons/sunny-clouds.png';
+import overcastCloudsIcon from '../img/weather-icons/overcast-clouds.png';
+import lightRainIcon from '../img/weather-icons/light-rain.png';
+import moderateRainIcon from '../img/weather-icons/moderate-rain.png';
+import rainIcon from '../img/weather-icons/rain.png';
+import snowIcon from '../img/weather-icons/snow.png';
+import mistIcon from '../img/weather-icons/mist.png';
+import heavyRainStormIcon from '../img/weather-icons/heavy-rain-storm.png';
+import heavyRainIcon from '../img/weather-icons/heavy-rain.png';
+import thunderstormIcon from '../img/weather-icons/thunder.png';
+import clearNightIcon from '../img/weather-icons/night-clear.png';
+import fewCloudsNightIcon from '../img/weather-icons/night-few-clouds.png';
 import cloudsNightImage from '../img/weather-icons/night-cloudy.png';
-import rainNightImage from '../img/weather-icons/night-rain.png';
-import lightRainNightImage from '../img/weather-icons/night-light-rain.png';
-import overcastCloudsNightImage from '../img/weather-icons/night-overcast-clouds.png';
+import rainNightIcon from '../img/weather-icons/night-rain.png';
+import heavyNightRainIcon from '../img/weather-icons/night-heavy-rain.png';
+import lightrainNightIcon from '../img/weather-icons/night-light-rain.png';
+import overcastCloudsNightIcon from '../img/weather-icons/night-overcast-clouds.png';
+import clearSkyImage from '../img/weather-images/day-clear-sky.png';
+import fewCloudsImage from '../img/weather-images/day-few-clouds.png';
+import overcastCloudsImage from '../img/weather-images/day-overcast-clouds.png';
+import heavyRainImage from '../img/weather-images/day-heavy-rain.png';
+import dustSandImage from '../img/weather-images/dust-sand.png';
+import fogImage from '../img/weather-images/fog.png';
+import mistImage from '../img/weather-images/mist.png';
+import snowImage from '../img/weather-images/day-snow.png';
+import nightClearSkyImage from '../img/weather-images/night-clear-sky.png';
+import nightfewCloudsImage from '../img/weather-images/night-few-clouds.png';
+import nightOvercastCloudsImage from '../img/weather-images/night-overcast-clouds.png';
+import nightThunderImage from '../img/weather-images/night-thunder.png';
 
+const currentWeatherBox = document.getElementById('currentWeatherBox');
 const location = document.getElementById('location');
 const date = document.getElementById('date');
 const temp = document.getElementById('temp');
@@ -89,13 +104,114 @@ function createDescriptionString(weatherData) {
 }
 
 const weatherIconMap = {
+  'clear sky': clearSkyIcon,
+  'few clouds': fewCloudsIcon,
+  'scattered clouds': brokenCloudsIcon,
+  'broken clouds': brokenCloudsIcon,
+  'overcast clouds': overcastCloudsIcon,
+  'light rain': lightRainIcon,
+  'moderate rain': moderateRainIcon,
+  'heavy rain': rainIcon,
+  'heavy intensity rain': heavyRainIcon,
+  'very heavy rain': heavyRainIcon,
+  'extreme rain': heavyRainIcon,
+  'freezing rain': heavyRainIcon,
+  'rain and snow': snowIcon,
+  'light intensity shower rain': heavyRainIcon,
+  'shower rain': heavyRainIcon,
+  'heavy intensity shower rain': heavyRainIcon,
+  'ragged shower rain': heavyRainIcon,
+  'light thunderstorm': thunderstormIcon,
+  'heavy thunderstorm': thunderstormIcon,
+  'ragged thunderstorm': thunderstormIcon,
+  'thunderstorm with light drizzle': thunderstormIcon,
+  'thunderstorm with drizzle': thunderstormIcon,
+  'thunderstorm with heavy drizzle': thunderstormIcon,
+  'thunderstorm with light rain': thunderstormIcon,
+  'thunderstorm with rain': heavyRainStormIcon,
+  'thunderstorm with heavy rain': heavyRainStormIcon,
+  'light snow': snowIcon,
+  'heavy snow': snowIcon,
+  'light shower sleet': snowIcon,
+  'shower sleet': snowIcon,
+  'light rain and snow': snowIcon,
+  'heavy shower snow': snowIcon,
+  'light shower snow': snowIcon,
+  'shower snow': snowIcon,
+  'sand/dust whirls': mistIcon,
+  'volcanic ash': mistIcon,
+  'light intensity drizzle': mistIcon,
+  sleet: snowIcon,
+  mist: mistIcon,
+  squalls: mistIcon,
+  tornado: mistIcon,
+  fog: mistIcon,
+  sand: mistIcon,
+  dust: mistIcon,
+  smoke: mistIcon,
+  haze: mistIcon,
+  snow: snowIcon,
+  thunderstorm: thunderstormIcon,
+};
+
+const nightWeatherIconMap = {
+  'clear sky': clearNightIcon,
+  'few clouds': fewCloudsNightIcon,
+  'scattered clouds': cloudsNightImage,
+  'broken clouds': cloudsNightImage,
+  'overcast clouds': overcastCloudsNightIcon,
+  'light rain': lightrainNightIcon,
+  'moderate rain': lightrainNightIcon,
+  'heavy rain': heavyNightRainIcon,
+  'heavy intensity rain': heavyNightRainIcon,
+  'very heavy rain': heavyNightRainIcon,
+  'extreme rain': heavyNightRainIcon,
+  'freezing rain': snowIcon,
+  'rain and snow': snowIcon,
+  'light intensity shower rain': rainNightIcon,
+  'shower rain': rainNightIcon,
+  'heavy intensity shower rain': heavyNightRainIcon,
+  'ragged shower rain': heavyNightRainIcon,
+  'light thunderstorm': thunderstormIcon,
+  'heavy thunderstorm': thunderstormIcon,
+  'ragged thunderstorm': thunderstormIcon,
+  'thunderstorm with light drizzle': thunderstormIcon,
+  'thunderstorm with drizzle': thunderstormIcon,
+  'thunderstorm with heavy drizzle': thunderstormIcon,
+  'thunderstorm with light rain': thunderstormIcon,
+  'thunderstorm with rain': heavyRainStormIcon,
+  'thunderstorm with heavy rain': heavyRainStormIcon,
+  'light snow': snowIcon,
+  'heavy snow': snowIcon,
+  'light shower sleet': snowIcon,
+  'shower sleet': snowIcon,
+  'light rain and snow': snowIcon,
+  'heavy shower snow': snowIcon,
+  'light shower snow': snowIcon,
+  'shower snow': snowIcon,
+  'sand/dust whirls': mistIcon,
+  'volcanic ash': mistIcon,
+  sleet: snowIcon,
+  mist: mistIcon,
+  squalls: mistIcon,
+  tornado: mistIcon,
+  fog: mistIcon,
+  sand: mistIcon,
+  dust: mistIcon,
+  smoke: mistIcon,
+  haze: mistIcon,
+  snow: snowIcon,
+  thunderstorm: thunderstormIcon,
+};
+
+const weatherImageMap = {
   'clear sky': clearSkyImage,
   'few clouds': fewCloudsImage,
-  'scattered clouds': brokenCloudsImage,
-  'broken clouds': brokenCloudsImage,
+  'scattered clouds': fewCloudsImage,
+  'broken clouds': fewCloudsImage,
   'overcast clouds': overcastCloudsImage,
-  'light rain': lightRainImage,
-  'moderate rain': rainImage,
+  'light rain': fewCloudsImage,
+  'moderate rain': heavyRainImage,
   'heavy rain': heavyRainImage,
   'heavy intensity rain': heavyRainImage,
   'very heavy rain': heavyRainImage,
@@ -106,15 +222,15 @@ const weatherIconMap = {
   'shower rain': heavyRainImage,
   'heavy intensity shower rain': heavyRainImage,
   'ragged shower rain': heavyRainImage,
-  'light thunderstorm': thunderstormImage,
-  'heavy thunderstorm': thunderstormImage,
-  'ragged thunderstorm': thunderstormImage,
-  'thunderstorm with light drizzle': thunderstormImage,
-  'thunderstorm with drizzle': thunderstormImage,
-  'thunderstorm with heavy drizzle': thunderstormImage,
-  'thunderstorm with light rain': thunderstormImage,
-  'thunderstorm with rain': heavyRainStormImage,
-  'thunderstorm with heavy rain': heavyRainStormImage,
+  'light thunderstorm': overcastCloudsImage,
+  'heavy thunderstorm': overcastCloudsImage,
+  'ragged thunderstorm': overcastCloudsImage,
+  'thunderstorm with light drizzle': overcastCloudsImage,
+  'thunderstorm with drizzle': overcastCloudsImage,
+  'thunderstorm with heavy drizzle': overcastCloudsImage,
+  'thunderstorm with light rain': overcastCloudsImage,
+  'thunderstorm with rain': overcastCloudsImage,
+  'thunderstorm with heavy rain': overcastCloudsImage,
   'light snow': snowImage,
   'heavy snow': snowImage,
   'light shower sleet': snowImage,
@@ -123,72 +239,72 @@ const weatherIconMap = {
   'heavy shower snow': snowImage,
   'light shower snow': snowImage,
   'shower snow': snowImage,
-  'sand/dust whirls': mistImage,
-  'volcanic ash': mistImage,
-  sleet: snowImage,
+  'sand/dust whirls': dustSandImage,
+  'volcanic ash': fogImage,
+  sleet: mistImage,
   mist: mistImage,
-  squalls: mistImage,
-  tornado: mistImage,
-  fog: mistImage,
-  sand: mistImage,
-  dust: mistImage,
-  smoke: mistImage,
-  haze: mistImage,
+  squalls: fogImage,
+  tornado: fogImage,
+  fog: fogImage,
+  sand: dustSandImage,
+  dust: dustSandImage,
+  smoke: fogImage,
+  haze: fogImage,
   snow: snowImage,
-  thunderstorm: thunderstormImage,
+  thunderstorm: overcastCloudsImage,
 };
 
-const nightWeatherIconMap = {
-  'clear sky': clearNightImage,
-  'few clouds': fewCloudsNightImage,
-  'scattered clouds': cloudsNightImage,
-  'broken clouds': cloudsNightImage,
-  'overcast clouds': overcastCloudsNightImage,
-  'light rain': lightRainNightImage,
-  'moderate rain': lightRainNightImage,
-  'heavy rain': rainNightImage,
-  'heavy intensity rain': rainNightImage,
-  'very heavy rain': rainNightImage,
-  'extreme rain': rainNightImage,
-  'freezing rain': snowImage,
-  'rain and snow': snowImage,
-  'light intensity shower rain': rainNightImage,
-  'shower rain': rainNightImage,
-  'heavy intensity shower rain': rainNightImage,
-  'ragged shower rain': rainNightImage,
-  'light thunderstorm': thunderstormImage,
-  'heavy thunderstorm': thunderstormImage,
-  'ragged thunderstorm': thunderstormImage,
-  'thunderstorm with light drizzle': thunderstormImage,
-  'thunderstorm with drizzle': thunderstormImage,
-  'thunderstorm with heavy drizzle': thunderstormImage,
-  'thunderstorm with light rain': thunderstormImage,
-  'thunderstorm with rain': heavyRainStormImage,
-  'thunderstorm with heavy rain': heavyRainStormImage,
-  'light snow': snowImage,
-  'heavy snow': snowImage,
-  'light shower sleet': snowImage,
-  'shower sleet': snowImage,
-  'light rain and snow': snowImage,
-  'heavy shower snow': snowImage,
-  'light shower snow': snowImage,
-  'shower snow': snowImage,
-  'sand/dust whirls': mistImage,
-  'volcanic ash': mistImage,
-  sleet: snowImage,
+const nightWeatherImageMap = {
+  'clear sky': nightClearSkyImage,
+  'few clouds': nightfewCloudsImage,
+  'scattered clouds': nightfewCloudsImage,
+  'broken clouds': nightfewCloudsImage,
+  'overcast clouds': nightOvercastCloudsImage,
+  'light rain': nightfewCloudsImage,
+  'moderate rain': nightfewCloudsImage,
+  'heavy rain': nightOvercastCloudsImage,
+  'heavy intensity rain': nightOvercastCloudsImage,
+  'very heavy rain': nightOvercastCloudsImage,
+  'extreme rain': nightOvercastCloudsImage,
+  'freezing rain': nightOvercastCloudsImage,
+  'rain and snow': nightOvercastCloudsImage,
+  'light intensity shower rain': nightOvercastCloudsImage,
+  'shower rain': nightOvercastCloudsImage,
+  'heavy intensity shower rain': nightOvercastCloudsImage,
+  'ragged shower rain': nightOvercastCloudsImage,
+  'light thunderstorm': nightThunderImage,
+  'heavy thunderstorm': nightThunderImage,
+  'ragged thunderstorm': nightThunderImage,
+  'thunderstorm with light drizzle': nightThunderImage,
+  'thunderstorm with drizzle': nightThunderImage,
+  'thunderstorm with heavy drizzle': nightThunderImage,
+  'thunderstorm with light rain': nightThunderImage,
+  'thunderstorm with rain': nightThunderImage,
+  'thunderstorm with heavy rain': nightThunderImage,
+  'light snow': nightOvercastCloudsImage,
+  'heavy snow': nightOvercastCloudsImage,
+  'light shower sleet': nightOvercastCloudsImage,
+  'shower sleet': nightOvercastCloudsImage,
+  'light rain and snow': nightOvercastCloudsImage,
+  'heavy shower snow': nightOvercastCloudsImage,
+  'light shower snow': nightOvercastCloudsImage,
+  'shower snow': nightOvercastCloudsImage,
+  'sand/dust whirls': dustSandImage,
+  'volcanic ash': fogImage,
+  sleet: mistImage,
   mist: mistImage,
-  squalls: mistImage,
-  tornado: mistImage,
-  fog: mistImage,
-  sand: mistImage,
-  dust: mistImage,
-  smoke: mistImage,
-  haze: mistImage,
-  snow: snowImage,
-  thunderstorm: thunderstormImage,
+  squalls: fogImage,
+  tornado: fogImage,
+  fog: fogImage,
+  sand: dustSandImage,
+  dust: dustSandImage,
+  smoke: fogImage,
+  haze: fogImage,
+  snow: nightOvercastCloudsImage,
+  thunderstorm: nightThunderImage,
 };
 
-function getFutureWeatherImageURL(weatherData, index) {
+function getFutureWeatherIconURL(weatherData, index) {
   const weatherDescription = weatherData.weatherDescriptions[index + 1];
   const imageURL =
     weatherIconMap[weatherDescription] ||
@@ -199,7 +315,7 @@ function getFutureWeatherImageURL(weatherData, index) {
   return imageURL;
 }
 
-function getCurrentWeatherImageURL(weatherData) {
+function getCurrentWeatherIconURL(weatherData) {
   const weatherDescription = weatherData.current.weather[0].description;
   const timeOfDay = weatherData.current.weather[0].icon.slice(2, 3);
   let imageURL = '';
@@ -215,6 +331,18 @@ function getCurrentWeatherImageURL(weatherData) {
   return imageURL;
 }
 
+function getCurrentWeatherImageURL(weatherData) {
+  const weatherDescription = weatherData.current.weather[0].description;
+  const timeOfDay = weatherData.current.weather[0].icon.slice(2, 3);
+  let imageURL = '';
+  if (timeOfDay === 'd') {
+    imageURL = weatherImageMap[weatherDescription];
+  } else {
+    imageURL = nightWeatherImageMap[weatherDescription];
+  }
+  return imageURL;
+}
+
 function setFutureWeatherData(weatherData) {
   const days = getFutureDays(weatherData.timezone);
 
@@ -226,7 +354,7 @@ function setFutureWeatherData(weatherData) {
     const futureMaxTemp = container.querySelector('.day-max');
 
     futureDay.textContent = days[index];
-    futureImage.style.background = `url(${getFutureWeatherImageURL(
+    futureImage.style.background = `url(${getFutureWeatherIconURL(
       weatherData,
       index,
     )})`;
@@ -241,10 +369,13 @@ function setFutureWeatherData(weatherData) {
 }
 
 function setCurrentWeatherData(weatherData) {
+  currentWeatherBox.style.background = `url(${getCurrentWeatherImageURL(
+    weatherData,
+  )})`;
   location.textContent = `${weatherData.name}, ${weatherData.country}`;
   date.textContent = `${getCurrentDate(weatherData.timezone)}`;
   temp.textContent = `${Math.round(weatherData.current.temp)}`;
-  currentWeatherIcon.style.background = `url(${getCurrentWeatherImageURL(
+  currentWeatherIcon.style.background = `url(${getCurrentWeatherIconURL(
     weatherData,
   )})`;
   description.textContent = createDescriptionString(weatherData);
