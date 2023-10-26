@@ -14,13 +14,14 @@ const currentWeatherIcon = document.getElementById('currentWeatherIcon');
 const minMaxTempContainer = document.getElementById('minMaxTemp');
 const description = document.getElementById('weatherDescription');
 const clock = document.getElementById('clock');
-const thermalSensation = document.getElementById('thermalSensation');
+const feelsLike = document.getElementById('thermalSensation');
 const rainProbability = document.getElementById('rainProbability');
 const windSpeed = document.getElementById('windSpeed');
 const airHumidity = document.getElementById('airHumidity');
 const uvIndex = document.getElementById('uvIndex');
 const futureForecastContainers = document.querySelectorAll('.day-forecast');
 const dayContainers = document.querySelectorAll('.day');
+const smallScreenMediaQuery = window.matchMedia('(max-width: 768px)');
 
 export function transitionForecast() {
   const forecast = document.querySelector('.forecast');
@@ -44,8 +45,6 @@ function getFutureDays(timeZone) {
   return next5Days;
 }
 
-const smallScreenMediaQuery = window.matchMedia('(max-width: 768px)');
-
 function changeDayTextLength(mediaQuery, weatherData) {
   const days = getFutureDays(weatherData.timezone);
   if (mediaQuery.matches) {
@@ -61,7 +60,7 @@ function changeDayTextLength(mediaQuery, weatherData) {
   }
 }
 
-export function handleText(weatherData) {
+export function handleFutureDaysTextLength(weatherData) {
   changeDayTextLength(smallScreenMediaQuery, weatherData);
   smallScreenMediaQuery.addEventListener('change', () => {
     changeDayTextLength(smallScreenMediaQuery, weatherData);
@@ -90,43 +89,53 @@ function createDescriptionString(weatherData) {
     .join(' ');
 }
 
+function getDefaultIconURL(iconID) {
+  return `http://openweathermap.org/img/wn/${iconID}@2x.png`;
+}
+
 function getFutureWeatherIconURL(weatherData, index) {
   const weatherDescription = weatherData.weatherDescriptions[index + 1];
-  const imageURL =
-    weatherIconMap[weatherDescription] ||
-    `http://openweathermap.org/img/wn/${
-      weatherData.daily[index + 1].weather[0].icon
-    }@2x.png`;
+  const defaultURL = getDefaultIconURL(
+    weatherData.daily[index + 1].weather[0].icon,
+  );
+  const customURL = weatherIconMap[weatherDescription];
 
-  return imageURL;
+  return customURL || defaultURL;
 }
 
 function getCurrentWeatherIconURL(weatherData) {
   const weatherDescription = weatherData.current.weather[0].description;
   const timeOfDay = weatherData.current.weather[0].icon.slice(2, 3);
-  let imageURL = '';
-  if (timeOfDay === 'd') {
-    imageURL =
-      weatherIconMap[weatherDescription] ||
-      `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
-  } else {
-    imageURL =
-      nightWeatherIconMap[weatherDescription] ||
-      `http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}@2x.png`;
-  }
+  const defaultURL = getDefaultIconURL(weatherData.daily[0].weather[0].icon);
+  const dayIconURL = weatherIconMap[weatherDescription] || defaultURL;
+  const nightIconURL = nightWeatherIconMap[weatherDescription] || defaultURL;
+  const imageURL = timeOfDay === 'd' ? dayIconURL : nightIconURL;
+
   return imageURL;
 }
 
 function getCurrentWeatherImageURL(weatherData) {
   const weatherDescription = weatherData.current.weather[0].description;
   const timeOfDay = weatherData.current.weather[0].icon.slice(2, 3);
-  let imageURL = '';
-  if (timeOfDay === 'd') {
-    imageURL = weatherImageMap[weatherDescription];
-  } else {
-    imageURL = nightWeatherImageMap[weatherDescription];
-  }
+  const dayImageURL = weatherImageMap[weatherDescription];
+  const nightImageURL = nightWeatherImageMap[weatherDescription];
+  const imageURL = timeOfDay === 'd' ? dayImageURL : nightImageURL;
+
   return imageURL;
+}
+
+function setTextContent(element, text) {
+  const currentElement = element;
+  currentElement.textContent = text;
+}
+
+function minOrMaxTemp(weatherData, index, minOrMax) {
+  return `${Math.round(weatherData.daily[index + 1].temp[minOrMax])}°c`;
+}
+
+function setBackgroundURL(element, url) {
+  const modyfyingElement = element;
+  modyfyingElement.style.background = `url(${url})`;
 }
 
 function displayDailyWeatherData(weatherData) {
@@ -134,49 +143,41 @@ function displayDailyWeatherData(weatherData) {
 
   futureForecastContainers.forEach((container, index) => {
     const futureDay = container.querySelector('.day');
-    const futureImage = container.querySelector('.weather-image');
+    const futureIcon = container.querySelector('.weather-image');
     const futureWeather = container.querySelector('.weather-description');
     const futureMinTemp = container.querySelector('.day-min');
     const futureMaxTemp = container.querySelector('.day-max');
 
-    futureDay.textContent = days[index];
-    futureImage.style.background = `url(${getFutureWeatherIconURL(
-      weatherData,
-      index,
-    )})`;
-    futureWeather.textContent = weatherData.daily[index + 1].weather[0].main;
-    futureMinTemp.textContent = `${Math.round(
-      weatherData.daily[index + 1].temp.min,
-    )}°c`;
-    futureMaxTemp.textContent = `${Math.round(
-      weatherData.daily[index + 1].temp.max,
-    )}°c`;
+    setBackgroundURL(
+      futureIcon,
+      `${getFutureWeatherIconURL(weatherData, index)}`,
+    );
+    setTextContent(futureDay, days[index]);
+    setTextContent(futureWeather, weatherData.daily[index + 1].weather[0].main);
+    setTextContent(futureMinTemp, minOrMaxTemp(weatherData, index, 'min'));
+    setTextContent(futureMaxTemp, minOrMaxTemp(weatherData, index, 'max'));
   });
 }
 
-function displayCurrentWeatherData(weatherData) {
-  currentWeatherBox.style.background = `url(${getCurrentWeatherImageURL(
-    weatherData,
-  )})`;
-  location.textContent = `${weatherData.name}, ${weatherData.country}`;
-  date.textContent = `${getCurrentDate(weatherData.timezone)}`;
-  temp.textContent = `${Math.round(weatherData.current.temp)}`;
-  currentWeatherIcon.style.background = `url(${getCurrentWeatherIconURL(
-    weatherData,
-  )})`;
-  description.textContent = `${createDescriptionString(weatherData)}`;
-  minMaxTempContainer.textContent = `${createMinMaxString(weatherData)}`;
-  clock.textContent = weatherData.localTime;
-  thermalSensation.textContent = `${Math.round(
-    weatherData.current.feels_like,
-  )}°c`;
-  rainProbability.textContent = `${weatherData.daily[0].pop * 100}%`;
-  windSpeed.textContent = `${weatherData.current.wind_speed} km/h`;
-  airHumidity.textContent = `${weatherData.current.humidity}%`;
-  uvIndex.textContent = `${Math.round(weatherData.current.uvi)}`;
-}
-
 export function displayWeatherData(weatherData) {
-  displayCurrentWeatherData(weatherData);
+  setBackgroundURL(
+    currentWeatherBox,
+    `${getCurrentWeatherImageURL(weatherData)}`,
+  );
+  setBackgroundURL(
+    currentWeatherIcon,
+    `${getCurrentWeatherIconURL(weatherData)}`,
+  );
+  setTextContent(location, `${weatherData.name}, ${weatherData.country}`);
+  setTextContent(date, getCurrentDate(weatherData.timezone));
+  setTextContent(temp, `${Math.round(weatherData.current.temp)}`);
+  setTextContent(description, `${createDescriptionString(weatherData)}`);
+  setTextContent(minMaxTempContainer, `${createMinMaxString(weatherData)}`);
+  setTextContent(clock, weatherData.localTime);
+  setTextContent(feelsLike, `${Math.round(weatherData.current.feels_like)}°c`);
+  setTextContent(rainProbability, `${weatherData.daily[0].pop * 100}%`);
+  setTextContent(windSpeed, `${weatherData.current.wind_speed} km/h`);
+  setTextContent(airHumidity, `${weatherData.current.humidity}%`);
+  setTextContent(uvIndex, `${Math.round(weatherData.current.uvi)}`);
   displayDailyWeatherData(weatherData);
 }
