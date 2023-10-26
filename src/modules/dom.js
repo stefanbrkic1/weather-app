@@ -32,21 +32,19 @@ export function transitionForecast() {
   }, 1000);
 }
 
-function getFutureDays(timeZone) {
+function getNext5Weekdays(timeZone) {
   const currentDate = new Date();
-  const next5Days = [];
-
-  for (let i = 1; i <= 5; i += 1) {
+  const next5Days = Array.from({ length: 5 }, (_, i) => {
     const nextDate = new Date(currentDate);
-    nextDate.setDate(currentDate.getDate() + i);
-    next5Days.push(format(nextDate, 'eeee', { timeZone }));
-  }
+    nextDate.setDate(currentDate.getDate() + i + 1);
+    return format(nextDate, 'eeee', { timeZone });
+  });
 
   return next5Days;
 }
 
-function changeDayTextLength(mediaQuery, weatherData) {
-  const days = getFutureDays(weatherData.timezone);
+function changeWeekdayTextLength(mediaQuery, weatherData) {
+  const days = getNext5Weekdays(weatherData.timezone);
   if (mediaQuery.matches) {
     dayContainers.forEach((day, index) => {
       const currentDay = day;
@@ -61,9 +59,9 @@ function changeDayTextLength(mediaQuery, weatherData) {
 }
 
 export function handleFutureDaysTextLength(weatherData) {
-  changeDayTextLength(smallScreenMediaQuery, weatherData);
+  changeWeekdayTextLength(smallScreenMediaQuery, weatherData);
   smallScreenMediaQuery.addEventListener('change', () => {
-    changeDayTextLength(smallScreenMediaQuery, weatherData);
+    changeWeekdayTextLength(smallScreenMediaQuery, weatherData);
   });
 }
 
@@ -139,7 +137,7 @@ function setBackgroundURL(element, url) {
 }
 
 function displayDailyWeatherData(weatherData) {
-  const days = getFutureDays(weatherData.timezone);
+  const days = getNext5Weekdays(weatherData.timezone);
 
   futureForecastContainers.forEach((container, index) => {
     const futureDay = container.querySelector('.day');
