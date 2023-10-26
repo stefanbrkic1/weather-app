@@ -42,11 +42,15 @@ function handleIndexWeatherData(weatherData) {
   window.location.href = './weather.html';
 }
 
-function handleForecastWeatherData(weatherData, searchBar) {
+function handleForecastTransition(weatherData) {
   transitionForecast();
   setTimeout(() => {
     displayWeatherData(weatherData);
   }, 1000);
+}
+
+function handleForecastWeatherData(weatherData, searchBar) {
+  handleForecastTransition(weatherData);
   localStorage.setItem('weatherData', JSON.stringify(weatherData));
   resetInput(searchBar);
 }
