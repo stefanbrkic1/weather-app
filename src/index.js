@@ -1,6 +1,9 @@
 import './styles/style.css';
-import { handleIndexSearchBar } from './modules/search-bars';
+import handleSearchForm from './modules/search-bars';
 
-window.onload = () => {
-  handleIndexSearchBar();
-};
+const searchFormIndex = document.getElementById('searchFormIndex');
+const searchBarIndex = document.getElementById('searchBarIndex');
+
+document.addEventListener('DOMContentLoaded', () => {
+  handleSearchForm(searchFormIndex, searchBarIndex, 'index');
+});

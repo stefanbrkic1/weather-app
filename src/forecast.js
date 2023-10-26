@@ -4,12 +4,15 @@ import {
   displayWeatherData,
   handleText,
 } from './modules/dom';
-import { handleForecastSearch } from './modules/search-bars';
+import handleSearchForm from './modules/search-bars';
 
-window.onload = () => {
+const searchFormForecast = document.getElementById('searchFormForecast');
+const searchBarForecast = document.getElementById('searchBarForecast');
+
+document.addEventListener('DOMContentLoaded', () => {
   const weatherData = JSON.parse(localStorage.getItem('weatherData'));
   transitionForecast();
-  handleForecastSearch();
+  handleSearchForm(searchFormForecast, searchBarForecast, 'forecast');
   displayWeatherData(weatherData);
   handleText(weatherData);
-};
+});
