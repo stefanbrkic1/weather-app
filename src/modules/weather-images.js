@@ -88,7 +88,7 @@ export const nightWeatherIconMap = {
   'broken clouds': cloudsNightImage,
   'overcast clouds': overcastCloudsNightIcon,
   'light rain': lightrainNightIcon,
-  'moderate rain': lightrainNightIcon,
+  'moderate rain': rainNightIcon,
   'heavy rain': heavyNightRainIcon,
   'heavy intensity rain': heavyNightRainIcon,
   'very heavy rain': heavyNightRainIcon,
