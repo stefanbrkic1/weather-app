@@ -15,6 +15,7 @@
 
 :root {
   --primary-color: #3671f1;
+  --primary-color-light: #00aeef;
 
   --text-color: #fbfbfb;
   --text-secondary-color: #bfbfd4;
@@ -66,24 +67,40 @@ body {
 }
 
 .logo-container {
+  width: 180px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color);
   margin-top: 15px;
+  background: url(../img/logo/weather-app-logotype.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.index-header {
+  font-size: 18rem;
+  color: var(--text-color);
+  margin-top: 15rem;
 }
 
 .welcome-para {
-  font-family: var(--primary-font-bold) !important;
-  font-size: 38rem;
+  font-size: 36rem;
+  font-family: var(--primary-font-bold);
+}
+
+.app-text {
+  font-family: var(--primary-font-regular) !important;
 }
 
 .welcome-text {
+  font-family: var(--primary-font-regular) !important;
   color: var(--text-color);
 }
 
 .welcome-logo {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .paragraph {
@@ -104,18 +121,17 @@ body {
   appearance: none;
   border: none;
   outline: none;
-  background: var(--background-secondary-color);
+  background: var(--background-tertiary-color);
   color: var(--text-secondary-color);
   width: 600px;
   border-radius: 10px;
   font-family: 'GilroySemiBold' !important;
   font-size: 16rem;
-  border: 1px solid var(--text-color);
   transition: width 300ms ease-in-out;
 }
 
 .search-bar-index:focus {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--text-color);
   color: var(--text-color);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
   width: 630px;
@@ -142,7 +158,7 @@ body {
   appearance: none;
   outline: none;
   border: none;
-  background: var(--primary-color);
+  background: var(--primary-color-light);
   width: 34px;
   height: 34px;
   border-radius: 8px;
@@ -246,12 +262,21 @@ body {
 
 .logo-container-forecast {
   background: var(--background-tertiary-color);
-  padding: 18px;
+  padding: 12px;
   border-radius: 8px;
   color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo-mark {
+  width: 30rem;
+  height: 30rem;
+  background: url(../img/logo/weather-app-logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .search-bar-forecast-container {
@@ -645,9 +670,6 @@ body {
   .weather-description {
     display: none;
   }
-  .logo-container-forecast {
-    display: none;
-  }
   .day-forecast {
     height: 70%;
     margin-bottom: 17px;
@@ -658,6 +680,12 @@ body {
   .detail-icon {
     width: 32rem;
     height: 32rem;
+  }
+  .flex {
+    gap: 7px;
+  }
+  .logo-container-forecast {
+    padding: 11rem;
   }
 }
 
