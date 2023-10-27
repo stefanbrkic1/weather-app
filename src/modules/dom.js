@@ -69,7 +69,7 @@ function getCurrentDate(timeZone) {
   return format(currentDate, 'eeee, MMMM dd, yyyy', { timeZone });
 }
 
-function createMinMaxString(weatherData) {
+function currentMinMaxString(weatherData) {
   return `${Math.round(weatherData.daily[0].temp.min)}°c / ${Math.round(
     weatherData.daily[0].temp.max,
   )}°c`;
@@ -126,7 +126,7 @@ function setTextContent(element, text) {
   currentElement.textContent = text;
 }
 
-function minOrMaxTemp(weatherData, index, minOrMax) {
+function minOrMaxTempString(weatherData, index, minOrMax) {
   return `${Math.round(weatherData.daily[index + 1].temp[minOrMax])}°c`;
 }
 
@@ -151,8 +151,14 @@ function displayDailyWeatherData(weatherData) {
     );
     setTextContent(futureDay, days[index]);
     setTextContent(futureWeather, weatherData.daily[index + 1].weather[0].main);
-    setTextContent(futureMinTemp, minOrMaxTemp(weatherData, index, 'min'));
-    setTextContent(futureMaxTemp, minOrMaxTemp(weatherData, index, 'max'));
+    setTextContent(
+      futureMinTemp,
+      minOrMaxTempString(weatherData, index, 'min'),
+    );
+    setTextContent(
+      futureMaxTemp,
+      minOrMaxTempString(weatherData, index, 'max'),
+    );
   });
   changeWeekdayTextLength(smallScreenMediaQuery, weatherData);
 }
@@ -170,7 +176,7 @@ export function displayWeatherData(weatherData) {
   setTextContent(date, getCurrentDate(weatherData.timezone));
   setTextContent(temp, `${Math.round(weatherData.current.temp)}`);
   setTextContent(description, `${createDescriptionString(weatherData)}`);
-  setTextContent(minMaxTempContainer, `${createMinMaxString(weatherData)}`);
+  setTextContent(minMaxTempContainer, `${currentMinMaxString(weatherData)}`);
   setTextContent(clock, weatherData.localTime);
   setTextContent(feelsLike, `${Math.round(weatherData.current.feels_like)}°c`);
   setTextContent(rainProbability, `${weatherData.daily[0].pop * 100}%`);
