@@ -58,8 +58,7 @@ function changeWeekdayTextLength(mediaQuery, weatherData) {
   }
 }
 
-export function handleFutureDaysTextLength(weatherData) {
-  changeWeekdayTextLength(smallScreenMediaQuery, weatherData);
+export function handleWeekDaysTextLength(weatherData) {
   smallScreenMediaQuery.addEventListener('change', () => {
     changeWeekdayTextLength(smallScreenMediaQuery, weatherData);
   });
@@ -155,6 +154,7 @@ function displayDailyWeatherData(weatherData) {
     setTextContent(futureMinTemp, minOrMaxTemp(weatherData, index, 'min'));
     setTextContent(futureMaxTemp, minOrMaxTemp(weatherData, index, 'max'));
   });
+  changeWeekdayTextLength(smallScreenMediaQuery, weatherData);
 }
 
 export function displayWeatherData(weatherData) {

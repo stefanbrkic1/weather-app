@@ -2,7 +2,7 @@ import './styles/style.css';
 import {
   transitionForecast,
   displayWeatherData,
-  handleFutureDaysTextLength,
+  handleWeekDaysTextLength,
 } from './modules/dom';
 import handleSearchForm from './modules/search-bars';
 
@@ -14,5 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
   transitionForecast();
   handleSearchForm(searchFormForecast, searchBarForecast, 'forecast');
   displayWeatherData(weatherData);
-  handleFutureDaysTextLength(weatherData);
+  handleWeekDaysTextLength(weatherData);
 });
