@@ -72,7 +72,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 25px;
   background: url(../img/logo/weather-app-logotype.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -164,7 +164,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .github-user {
