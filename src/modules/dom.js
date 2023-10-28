@@ -21,7 +21,14 @@ const airHumidity = document.getElementById('airHumidity');
 const uvIndex = document.getElementById('uvIndex');
 const futureForecastContainers = document.querySelectorAll('.day-forecast');
 const dayContainers = document.querySelectorAll('.day');
+const homeBtn = document.getElementById('homeBtn');
 const smallScreenMediaQuery = window.matchMedia('(max-width: 768px)');
+
+export function handleHomeButton() {
+  homeBtn.addEventListener('click', () => {
+    window.location.href = './index.html';
+  });
+}
 
 export function transitionForecast() {
   const forecast = document.querySelector('.forecast');

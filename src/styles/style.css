@@ -265,6 +265,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo-mark {
@@ -292,7 +293,7 @@ body {
   padding: 15px;
   background: var(--background-tertiary-color);
   border-radius: 8px;
-  font-family: 'GilroySemiBold', sans-serif;
+  font-family: var(--primary-font-semi);
   font-size: 18rem;
   position: relative;
   color: var(--text-tertiary-color);

@@ -3,6 +3,7 @@ import {
   transitionForecast,
   displayWeatherData,
   handleWeekDaysTextLength,
+  handleHomeButton,
 } from './modules/dom';
 import handleSearchForm from './modules/search-bars';
 
@@ -11,6 +12,7 @@ const searchBarForecast = document.getElementById('searchBarForecast');
 
 document.addEventListener('DOMContentLoaded', () => {
   const weatherData = JSON.parse(localStorage.getItem('weatherData'));
+  handleHomeButton();
   transitionForecast();
   handleSearchForm(searchFormForecast, searchBarForecast, 'forecast');
   displayWeatherData(weatherData);
