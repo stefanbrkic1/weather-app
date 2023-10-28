@@ -55,14 +55,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'WeatherWave',
+      title: 'WeatherApp',
       filename: 'index.html',
+      favicon: './src/img/logo/favicon.ico',
       template: path.resolve(__dirname, './src/pages/index.ejs'),
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      title: 'WeatherWave | Forecast',
+      title: 'WeatherApp | Forecast',
       filename: 'weather.html',
+      favicon: './src/img/logo/favicon.ico',
       template: path.resolve(__dirname, './src/pages/weather.ejs'),
       chunks: ['forecast'],
     }),
