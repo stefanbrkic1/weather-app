@@ -118,7 +118,7 @@ body {
   color: var(--text-secondary-color);
   width: 600px;
   border-radius: 10px;
-  font-family: 'GilroySemiBold' !important;
+  font-family: var(--primary-font-regular);
   font-size: 16rem;
   transition: width 300ms ease-in-out;
 }
@@ -150,9 +150,9 @@ body {
   appearance: none;
   outline: none;
   border: none;
-  background: var(--primary-color-light);
-  width: 37px;
-  height: 37px;
+  background: var(--background-tertiary-color);
+  width: 27px;
+  height: 27px;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -161,7 +161,7 @@ body {
   transition: opacity 200ms ease-in-out;
   top: 50%;
   right: 0px;
-  transform: translate(-23%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .github-container {
@@ -191,7 +191,10 @@ body {
 .forecast-container {
   width: 100vw;
   height: 100vh;
-  background: var(--background-color);
+  background: url(../img/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   display: flex;
   overflow-y: auto;
@@ -308,18 +311,13 @@ body {
   outline: none;
   border: none;
   position: absolute;
-  background: var(--primary-color);
+  background: var(--background-tertiary-color);
   width: 37px;
   height: 37px;
   border-radius: 8px;
   cursor: pointer;
   right: 8px;
   transition: all 200ms ease-in-out;
-}
-
-.search-btn-forecast:hover {
-  background: #3474ff;
-  transform: scale(1.1);
 }
 
 .search-icon {
@@ -693,6 +691,10 @@ body {
   }
   .github-container {
     margin-bottom: 15%;
+  }
+  .search-icon {
+    width: 19px;
+    height: 19px;
   }
 }
 

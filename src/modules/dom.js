@@ -179,9 +179,12 @@ export function displayWeatherData(weatherData) {
   setTextContent(minMaxTempContainer, `${currentMinMaxString(weatherData)}`);
   setTextContent(clock, weatherData.localTime);
   setTextContent(feelsLike, `${Math.round(weatherData.current.feels_like)}°c`);
-  setTextContent(rainProbability, `${weatherData.daily[0].pop * 100}%`);
   setTextContent(windSpeed, `${weatherData.current.wind_speed} km/h`);
   setTextContent(airHumidity, `${weatherData.current.humidity}%`);
   setTextContent(uvIndex, `${Math.round(weatherData.current.uvi)}`);
+  setTextContent(
+    rainProbability,
+    `${(weatherData.daily[0].pop * 100).toFixed()}%`,
+  );
   displayDailyWeatherData(weatherData);
 }
