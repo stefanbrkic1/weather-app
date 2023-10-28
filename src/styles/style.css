@@ -67,7 +67,7 @@ body {
 }
 
 .logo-container {
-  width: 180px;
+  width: 170px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -86,16 +86,17 @@ body {
 }
 
 .header-text {
-  font-size: 36rem;
+  font-size: 33rem;
   font-family: var(--primary-font-semi);
   color: var(--text-color);
+  margin-bottom: 14px;
 }
 
 .paragraph {
-  font-size: 22rem;
+  font-size: 21rem;
   color: var(--text-secondary-color);
   text-align: center;
-  margin: 10px 0px;
+  margin-bottom: 18px;
 }
 
 .form-index {
@@ -105,23 +106,23 @@ body {
 }
 
 .search-bar-index {
-  padding: 18px 20px;
+  padding: 17px 19px;
   appearance: none;
   border: none;
   outline: none;
   background: var(--background-tertiary-color);
   color: var(--text-secondary-color);
-  width: 650px;
+  width: 600px;
   border-radius: 10px;
   font-family: 'GilroySemiBold' !important;
-  font-size: 18rem;
+  font-size: 16rem;
   transition: width 300ms ease-in-out;
 }
 
 .search-bar-index:focus {
   color: var(--text-color);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-  width: 680px;
+  width: 630px;
 }
 
 .search-container {
@@ -146,8 +147,8 @@ body {
   outline: none;
   border: none;
   background: var(--primary-color-light);
-  width: 34px;
-  height: 34px;
+  width: 37px;
+  height: 37px;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -156,7 +157,7 @@ body {
   transition: opacity 200ms ease-in-out;
   top: 50%;
   right: 0px;
-  transform: translate(-30%, -50%);
+  transform: translate(-23%, -50%);
 }
 
 .github-container {
@@ -561,7 +562,7 @@ body {
   }
   .search-bar-index {
     width: 100%;
-    padding: 16px 19px;
+    padding: 15px 18px;
   }
   .search-container {
     width: 32rem;
@@ -576,6 +577,7 @@ body {
   }
   .paragraph {
     font-size: 15rem;
+    margin-bottom: 10px;
   }
   .forecast-container {
     display: block;
@@ -643,12 +645,16 @@ body {
     height: 20rem;
   }
   .search-bar-index {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
     font-size: 16rem;
   }
   .search-btn-index {
-    width: 50px;
-    height: 50px;
+    width: 49px;
+    height: 49px;
     transform: translate(-0%, -50%);
+    border-radius: 0px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
   }
   .weather-image {
     width: 68rem;
