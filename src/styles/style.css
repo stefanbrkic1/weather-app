@@ -43,6 +43,7 @@ html {
 body {
   font-size: 16rem;
   font-family: var(--primary-font-regular);
+  background-color: var(--background-color);
 }
 
 .container {
@@ -557,7 +558,7 @@ body {
     padding: 20px;
   }
   .search-bar-container {
-    margin-bottom: 60%;
+    margin-bottom: 25%;
     width: 100%;
   }
   .form-index {
@@ -688,7 +689,7 @@ body {
   }
   .logo-container {
     width: 160px;
-    margin-top: 0px;
+    margin-top: 20px;
   }
   .github-container {
     margin-bottom: 15%;
