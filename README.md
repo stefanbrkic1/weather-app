@@ -22,8 +22,8 @@
 
 ## Preview
 
-![Preview](<./src/img/github/GitHub(MainPage).webp>)
-![Preview](<./src/img/github/GitHub(PHONES).webp>)
+![Preview](<./src/img/github/GitHub(MainPage).png>)
+![Preview](<./src/img/github/GitHub(PHONES).png>)
 
 > **Note**
 >
