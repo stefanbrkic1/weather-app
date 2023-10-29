@@ -1,16 +1,19 @@
 @font-face {
   font-family: 'Gilroy';
-  src: url(../fonts/Gilroy-Regular.ttf);
+  src: url(../fonts/Gilroy-Regular.ttf) format('ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'GilroySemiBold';
-  src: url(../fonts/Gilroy-SemiBold.ttf);
+  src: url(../fonts/Gilroy-SemiBold.ttf) format('ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'GilroyBold';
-  src: url(../fonts/Gilroy-Bold.ttf);
+  src: url(../fonts/Gilroy-Bold.ttf) format('ttf');
+  font-display: swap;
 }
 
 :root {
