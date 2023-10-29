@@ -3,8 +3,10 @@
 <div align="center">
 <img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="330">
 <br>
+<br>
 
 Bringing You the World, One Forecast at a Time.
+<br>
 <br>
 
   <p>
