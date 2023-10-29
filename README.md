@@ -31,6 +31,19 @@
 
 <br>
 
+## Pagespeed Insights Score
+
+- |                                                                                                                                                        |
+  | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
+  |                           <b>Overall Score 99.3%, Average of Mobile and Desktop</b><br>(Mobile devices score is shown below)                           |
+  |                                                                                                                                                        |
+  |                                           <img src='./design/pagespeed-insights-score.svg' alt='Scoreboard'>                                           |
+  |                                                                                                                                                        |
+  | Check out [**Pagespeed Insights**](https://pagespeed.web.dev/analysis/https-weatherwiseapp-vercel-app/0k686bqwj5?form_factor=mobile) to get live score |
+  |                                                                                                                                                        |
+
+<br>
+
 ## Built With
 
 <div align=center>
