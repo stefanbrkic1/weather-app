@@ -3,7 +3,10 @@
 <div align="center">
 <img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="330">
 <br>
+
+Bringing You the World, One Forecast at a Time.
 <br>
+
   <p>
     <a href="https://stefanbrkic1.github.io/weather-app/">View Demo</a>
     &nbsp;·&nbsp;
@@ -11,8 +14,6 @@
     &nbsp;·&nbsp;
     <a href="https://github.com/stefanbrkic1/weather-app/issues">Request Feature</a>
   </p>
-
-Bringing You the World, One Forecast at a Time.
 
 </div>
 
