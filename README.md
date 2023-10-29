@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="250">
+<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="275">
 <br>
 <br>
   <p>
@@ -50,11 +50,21 @@ Bringing You the World, One Forecast at a Time.
 
 ## Features
 
-- Creating **Lists** and adding **Sections** within lists
-- Listing **Today**, **ThisWeek** and **Important** tasks
-- Both **Dark** and **Light** Theme Appearance
-- **Responsive** for all devices **Desktop** , **Tablet** & **Mobile**
-- Modern **UI/UX** design
+- **ES6 Modules**: JavaScript code is organized into ES6 modules for improved maintainability.
+
+- **Webpack Bundling**: Optimize resource loading by bundling JavaScript modules with Webpack.
+
+- **API Integration**: The core functionality of the app is to display real-time weather data. To achieve this, you've integrated external weather APIs, which provide up-to-date weather information to your application.
+
+- **Location Search**: Implemented a Geolocation API that enables users to initiate location searches through a search bar. The API returns a list of matching results, allowing users to select their desired location before retrieving weather information. This user-friendly approach streamlines the process of obtaining weather data for specific locations.
+
+- **User-Friendly Interface**: Include a search bar and real-time data updates for a seamless user experience.
+
+- **Cross-Browser Compatibility**: Ensure smooth performance across various web browsers.
+
+- **Responsive Design**: Adapt to different screen sizes for a mobile-friendly experience.
+
+- **Code Formatting Guidelines**: The project adheres to coding standards and maintains code consistency by implementing ESLint along with Prettier for code formatting.
 
 <br>
 
@@ -63,6 +73,8 @@ Bringing You the World, One Forecast at a Time.
 ## Acknowledgments
 
 - Inspiration by [The Odin Project](https://www.theodinproject.com/)
+- Design credit goes to [RocketSeat](https://www.rocketseat.com.br/)
+- WeatherApp is powered by [Nominatim](https://nominatim.org/) & [WeatherAPI](https://openweathermap.org/api)
 
 <br>
 
