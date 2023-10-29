@@ -7,7 +7,6 @@
 "Get real-time weather updates and stay prepared with our app!"
 <br>
 <br>
-<br>
   <p>
     <a href="https://stefanbrkic1.github.io/weather-app/">View Demo</a>
     &nbsp;·&nbsp;
