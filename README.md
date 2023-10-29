@@ -1,10 +1,11 @@
 <br>
 
 <div align="center">
-<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="280">
+<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="300">
+<br>
+"Get real-time weather updates and stay prepared with our app!"
 <br>
 <br>
-
   <p>
     <a href="https://stefanbrkic1.github.io/weather-app/">View Demo</a>
     &nbsp;·&nbsp;
@@ -12,8 +13,6 @@
     &nbsp;·&nbsp;
     <a href="https://github.com/stefanbrkic1/weather-app/issues">Request Feature</a>
   </p>
-
-"Get real-time weather updates and stay prepared with our app!"
 
 </div>
 
