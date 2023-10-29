@@ -13,7 +13,7 @@
     <a href="https://github.com/stefanbrkic1/weather-app/issues">Request Feature</a>
   </p>
 
-Stay ahead of the weather with our app! Get real-time forecasts, accurate radar data, and customizable alerts for your location. Plan your day with confidence, no matter the conditions.
+"Get real-time weather updates and stay prepared with our app!"
 
 </div>
 
