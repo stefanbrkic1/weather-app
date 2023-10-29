@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="275">
+<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="290">
 <br>
 <br>
   <p>
@@ -74,7 +74,7 @@ Bringing You the World, One Forecast at a Time.
 
 - Inspiration by [The Odin Project](https://www.theodinproject.com/)
 - Design credit goes to [RocketSeat](https://www.rocketseat.com.br/)
-- WeatherApp is powered by [Nominatim](https://nominatim.org/) & [WeatherAPI](https://openweathermap.org/api)
+- WeatherApp is powered by [Nominatim](https://nominatim.org/) & [OpenWeatherMap](https://openweathermap.org/api)
 
 <br>
 
