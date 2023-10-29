@@ -22,9 +22,8 @@
 
 ## Preview
 
-![Preview](<./src/img/GitHub(MainPage)3.jpg>)
-![Preview](<./src/img/GitHub(PHONES).jpg>)
-![Preview](<./src/img/GitHub(Devices).jpg>)
+![Preview](<./src/img/github/GitHub(MainPage).png>)
+![Preview](<./src/img/github/GitHub(PHONES).png>)
 
 > **Note**
 >
