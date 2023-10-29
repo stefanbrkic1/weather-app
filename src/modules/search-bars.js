@@ -22,7 +22,6 @@ function resetInput(searchBar) {
 }
 
 function handleSearchError(error, searchForm, searchBar) {
-  console.error('WeatherDataError', error);
   const currentSearchBar = searchBar;
   currentSearchBar.value = '';
   currentSearchBar.setCustomValidity('Location not found, try again');
