@@ -7,7 +7,6 @@
 
 Bringing You the World, One Forecast at a Time.
 <br>
-<br>
 
   <p>
     <a href="https://stefanbrkic1.github.io/weather-app/">View Demo</a>
