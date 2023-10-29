@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="350">
+<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="300">
 <br>
 <br>
 
