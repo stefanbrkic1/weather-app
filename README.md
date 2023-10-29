@@ -3,9 +3,6 @@
 <div align="center">
 <img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="350">
 <br>
-
-Bringing You the World, One Forecast at a Time.
-<br>
 <br>
 
   <p>
@@ -15,6 +12,8 @@ Bringing You the World, One Forecast at a Time.
     &nbsp;·&nbsp;
     <a href="https://github.com/stefanbrkic1/weather-app/issues">Request Feature</a>
   </p>
+
+Bringing You the World, One Forecast at a Time.
 
 </div>
 
@@ -27,6 +26,10 @@ Bringing You the World, One Forecast at a Time.
 ![Preview](<./src/img/GitHub(MainPage)3.jpg>)
 ![Preview](<./src/img/GitHub(PHONES).jpg>)
 ![Preview](<./src/img/GitHub(Devices).jpg>)
+
+> **Note**
+>
+> > Application is still under Development
 
 <br>
 
