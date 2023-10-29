@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="320">
+<img src="./src/img/logo/weather-app-logotype.png" alt="logo" width="330">
 <br>
 "Get real-time weather updates and stay prepared with our app!"
 <br>
